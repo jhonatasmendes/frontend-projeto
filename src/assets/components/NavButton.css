@@ -1,0 +1,13 @@
+.navButton {
+    border: 0;
+    background-color: inherit;
+    width: 100%;
+    padding: 10px;
+    font-size: medium;
+    transition: 0.3s;
+}
+
+.navButton:hover {
+    background-color: rgb(141, 62, 34);
+    transition: 0.3s;
+}
