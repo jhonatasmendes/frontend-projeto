@@ -6,7 +6,7 @@ function Jogos() {
     const navigate = useNavigate();
 
     const handleOnClickHome = () => {
-        navigate("/");
+        navigate("/home");
     };
     const handleOnClickFilmes = () => {
         navigate("/filmes");
