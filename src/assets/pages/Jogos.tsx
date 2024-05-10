@@ -29,7 +29,9 @@ function Jogos() {
                 </div>
                 <div className="content">
                     <div className="jogos">
-                        <h1>Jogos</h1>
+                        <div className="cabecalho">
+                            <h1>Jogos</h1>
+                        </div>
                     </div>
                 </div>
             </div>

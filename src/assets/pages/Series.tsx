@@ -29,7 +29,9 @@ function Series() {
                 </div>
                 <div className="content">
                     <div className="series">
-                        <h1>Series</h1>
+                        <div className="cabecalho">
+                            <h1>Series</h1>
+                        </div>
                     </div>
                 </div>
             </div>

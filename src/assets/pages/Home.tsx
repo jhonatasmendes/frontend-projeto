@@ -32,7 +32,13 @@ function Home() {
                 </div>
                 <div className="content">
                     <div className="home">
-                        <h1>Página Inicial</h1>
+                        <div className="cabecalho">
+                            <h1>Página Inicial</h1>
+                            <h2>Seja bem vindo!</h2>
+                        </div>
+                        <div className="conteudo">
+                            <h2>Recentes</h2>
+                        </div>
                     </div>
                 </div>
             </div>

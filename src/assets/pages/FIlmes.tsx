@@ -29,7 +29,9 @@ function Filmes() {
                 </div>
                 <div className="content">
                     <div className="filmes">
-                        <h1>Filmes</h1>
+                        <div className="cabecalho">
+                            <h1>Filmes</h1>
+                        </div>
                     </div>
                 </div>
             </div>
