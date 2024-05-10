@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 // componentes
 import NavButton from "../components/NavButton";
 
-function Home() {
+function Filmes() {
     const navigate = useNavigate();
 
     const handleOnClickHome = () => {
@@ -28,8 +28,8 @@ function Home() {
                     <NavButton onClick={handleOnClickJogos}>Jogos</NavButton>
                 </div>
                 <div className="content">
-                    <div className="home">
-                        <h1>Página Inicial</h1>
+                    <div className="filmes">
+                        <h1>Filmes</h1>
                     </div>
                 </div>
             </div>
@@ -37,4 +37,4 @@ function Home() {
     );
 };
 
-export default Home;
+export default Filmes;

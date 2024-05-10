@@ -1,22 +1,23 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-// componentes
-import Content from './assets/components/Content'
-import NavButton from './assets/components/NavButton'
+
+// paginas
+import Home from './assets/pages/Home'
+import Filmes from './assets/pages/FIlmes'
+import Series from './assets/pages/Series'
+import Jogos from './assets/pages/Jogos'
 
 function App() {
   return (
     <>
-      <div className='container'>
-        <div className='sidebar'>
-            <NavButton>Home</NavButton>
-            <NavButton>Filmes</NavButton>
-            <NavButton>Series</NavButton>
-            <NavButton>Jogos</NavButton>
-        </div>
-        <div className='content'>
-          <Content/>
-        </div>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='filmes' element={<Filmes/>}/>
+          <Route path='series' element={<Series/>}/>
+          <Route path='jogos' element={<Jogos/>}/>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
