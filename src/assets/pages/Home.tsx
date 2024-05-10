@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 // componentes
 import NavButton from "../components/NavButton";
+import ExternalLink from "../components/ExternalLink";
 
 function Home() {
     const navigate = useNavigate();
@@ -26,6 +27,8 @@ function Home() {
                     <NavButton onClick={handleOnClickFilmes}>Filmes</NavButton>
                     <NavButton onClick={handleOnClickSeries}>Series</NavButton>
                     <NavButton onClick={handleOnClickJogos}>Jogos</NavButton>
+
+                    <ExternalLink href="https://github.com/">Link</ExternalLink>
                 </div>
                 <div className="content">
                     <div className="home">

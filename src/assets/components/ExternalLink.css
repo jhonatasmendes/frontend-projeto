@@ -1,0 +1,19 @@
+.external-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 0;
+    background-color: inherit;
+    width: 100%;
+    font-size: large;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.87);
+    transition: 0.3s;
+}
+
+.external-link:hover {
+    background-color: rgb(141, 62, 34);
+    transition: 0.3s;
+}
