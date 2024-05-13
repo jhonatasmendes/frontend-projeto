@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
+
 // componentes
 import NavButton from "../components/NavButton";
 import ExternalLink from "../components/ExternalLink";
+import Product from "../components/Product";
 
 function Home() {
     const navigate = useNavigate();
@@ -38,6 +40,10 @@ function Home() {
                         </div>
                         <div className="conteudo">
                             <h2>Recentes</h2>
+                            <div className="recent">
+                                <Product src="/filme.jpg">Águas Selvagens</Product>
+                                <Product src="/filme2.jpg">Maior que o Mundo</Product>
+                            </div>
                         </div>
                     </div>
                 </div>

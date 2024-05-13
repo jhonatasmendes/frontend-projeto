@@ -43,3 +43,9 @@
     color: white;
     padding: 8px 14px 8px 14px;
 }
+
+.recent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
