@@ -1,24 +1,27 @@
-import "./Login.css"
-import axios from 'axios';
-import { useState } from 'react';
-
-interface Users {
-    id: number
-    nome: string
-    email: string
-    senha: string
-    filmes: number
-    series: number
-    jogos: number
-    adulto: number
-};
+import "./Login.css";
+import { useState, ChangeEvent } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
-    const [users, setUsers] = useState<Users[]>([]);
+    const navigate = useNavigate();
 
-    const handleGetUsers = async () => {
-        const res = await axios.get("http://localhost:8080/users")
-        setUsers(res.data)
+    const [user, setUser] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleUser = (e: ChangeEvent<HTMLInputElement>) => {
+        setUser(e.target.value);
+    };
+    const handlePassword = (e: ChangeEvent<HTMLInputElement>) => {
+        setPassword(e.target.value)
+    };
+    const handleSubmit = () => {
+        if (user === "usuario1" && password === "1234") {
+            navigate("home");
+            setUser("");
+            setPassword("");
+        } else {
+            alert("Usuário ou senha incorreto.");
+        };
     };
 
     return (
@@ -26,10 +29,10 @@ function Login() {
             <div className="login-background">
                 <div className="login-root">
                     <div className="login-box">
-                        <input type="text" placeholder="Usuário" id="usuario"/>
-                        <input type="password" placeholder="Senha" id="senha" />
+                        <input type="text" placeholder="Usuário" onChange={handleUser} id="usuario"/>
+                        <input type="password" placeholder="Senha" onChange={handlePassword} id="senha" />
 
-                        <button onClick={handleGetUsers}>Login</button>
+                        <button onClick={handleSubmit} style={{cursor: "pointer"}}>Login</button>
                     </div>
                 </div>
             </div>
