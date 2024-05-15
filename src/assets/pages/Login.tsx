@@ -3,12 +3,23 @@ import { useState, ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+interface User {
+    id: number;
+    nome: string;
+    email: string;
+    senha: string;
+    filmes: number;
+    series: number;
+    jogos: number;
+    adulto: number;
+};
+
 function Login() {
     const navigate = useNavigate();
 
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
-    const [database, setDatabase] = useState([]);
+    const [database, setDatabase] = useState<User[]>([]);
 
     const users = [
         "usuario1",
