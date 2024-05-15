@@ -1,12 +1,28 @@
 import "./Login.css";
 import { useState, ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Login() {
     const navigate = useNavigate();
 
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
+    const [database, setDatabase] = useState([]);
+
+    const users = [
+        "usuario1",
+        "usuario2"
+    ];
+    const passwords = [
+        "1234",
+        "5678"
+    ];
+
+    const handleDatabase = async () => {
+        const res = await axios.get("http://localhost:8080/users");
+        setDatabase(res.data);
+    };
 
     const handleUser = (e: ChangeEvent<HTMLInputElement>) => {
         setUser(e.target.value);
@@ -15,10 +31,17 @@ function Login() {
         setPassword(e.target.value)
     };
     const handleSubmit = () => {
-        if (user === "usuario1" && password === "1234") {
-            navigate("home");
-            setUser("");
-            setPassword("");
+        handleDatabase();
+        console.log(database);
+
+        if (users.indexOf(user) != -1 && passwords.indexOf(password) != -1) {
+            if (users.indexOf(user) == passwords.indexOf(password)) {
+                navigate("home");
+                setUser("");
+                setPassword("");
+            } else {
+                alert("Usuário ou senha incorreto.");
+            };
         } else {
             alert("Usuário ou senha incorreto.");
         };
