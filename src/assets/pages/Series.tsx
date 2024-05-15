@@ -31,6 +31,7 @@ function Series() {
                     <div className="series">
                         <div className="cabecalho">
                             <h1>Series</h1>
+                            
                         </div>
                     </div>
                 </div>
