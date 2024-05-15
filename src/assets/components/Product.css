@@ -3,9 +3,26 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 6px;
+    transition: 0.3s;
+}
+
+.product a {
+    display: inherit;
+    flex-direction: inherit;
+    justify-content: inherit;
+    align-items: inherit;
+    text-decoration: none;
+    color: white;
 }
 
 .product img{
     width: 200px;
     margin-bottom: 12px;
+    box-shadow: 7px 5px 3px black;
+}
+
+.product:hover {
+    scale: 1.05;
+    transition: 0.5s;
 }

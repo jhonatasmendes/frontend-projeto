@@ -3,15 +3,18 @@ import "./Product.css"
 
 interface Prop {
     src: string;
+    link: string;
     children: ReactNode;
 };
 
-function Product({ src, children } : Prop) {
+function Product({ src, link, children } : Prop) {
     return (
         <>
             <div className="product">
-                <img src={src}/>
-                <p>{children}</p>
+                <a href={link}>
+                    <img src={src}/>
+                    <p>{children}</p>
+                </a>
             </div>
         </>
     );

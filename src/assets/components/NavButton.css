@@ -5,6 +5,7 @@
     padding: 10px;
     font-size: medium;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .navButton:hover {
