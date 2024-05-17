@@ -22,12 +22,12 @@ function Login() {
     const [database, setDatabase] = useState<User[]>([]);
 
     const users = [
-        "usuario1",
-        "usuario2"
+        "Mendes",
+        "Jonas"
     ];
     const passwords = [
-        "1234",
-        "5678"
+        "1099",
+        "1234"
     ];
 
     const handleDatabase = async () => {

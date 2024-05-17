@@ -20,6 +20,9 @@ function Home() {
     const handleOnClickJogos = () => {
         navigate("/jogos");
     };
+    const handleOnClickRedeSociais = () => {
+        navigate("/RedeSociais");
+    };
 
     return (
         <>
@@ -30,7 +33,7 @@ function Home() {
                     <NavButton onClick={handleOnClickSeries}>Series</NavButton>
                     <NavButton onClick={handleOnClickJogos}>Jogos</NavButton>
 
-                    <ExternalLink href="https://github.com/">Link</ExternalLink>
+                    
                 </div>
                 <div className="content">
                     <div className="content-overlay">
