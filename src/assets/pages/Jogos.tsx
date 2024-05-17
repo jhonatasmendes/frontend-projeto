@@ -28,9 +28,11 @@ function Jogos() {
                     <NavButton onClick={handleOnClickJogos}>Jogos</NavButton>
                 </div>
                 <div className="content">
-                    <div className="jogos">
-                        <div className="cabecalho">
-                            <h1>Jogos</h1>
+                    <div className="content-overlay">
+                        <div className="jogos">
+                            <div className="cabecalho">
+                                <h1>Jogos</h1>
+                            </div>
                         </div>
                     </div>
                 </div>

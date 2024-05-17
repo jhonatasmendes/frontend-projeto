@@ -33,16 +33,18 @@ function Home() {
                     <ExternalLink href="https://github.com/">Link</ExternalLink>
                 </div>
                 <div className="content">
-                    <div className="home">
-                        <div className="cabecalho">
-                            <h1>Página Inicial</h1>
-                            <h2>Seja bem vindo!</h2>
-                        </div>
-                        <div className="conteudo">
-                            <h2>Recentes</h2>
-                            <div className="recent">
-                                <Product src="/filme.jpg" link="#">Águas Selvagens</Product>
-                                <Product src="/filme2.jpg" link="#">Maior que o Mundo</Product>
+                    <div className="content-overlay">
+                        <div className="home">
+                            <div className="cabecalho">
+                                <h1>Página Inicial</h1>
+                                <h2>Seja bem vindo!</h2>
+                            </div>
+                            <div className="conteudo">
+                                <h2>Recentes</h2>
+                                <div className="recent">
+                                    <Product src="/filme.jpg" link="#">Águas Selvagens</Product>
+                                    <Product src="/filme2.jpg" link="#">Maior que o Mundo</Product>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -28,9 +28,11 @@ function Filmes() {
                     <NavButton onClick={handleOnClickJogos}>Jogos</NavButton>
                 </div>
                 <div className="content">
-                    <div className="filmes">
-                        <div className="cabecalho">
-                            <h1>Filmes</h1>
+                    <div className="content-overlay">
+                        <div className="filmes">
+                            <div className="cabecalho">
+                                <h1>Filmes</h1>
+                            </div>
                         </div>
                     </div>
                 </div>
