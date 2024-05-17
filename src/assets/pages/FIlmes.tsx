@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 
 // componentes
 import NavButton from "../components/NavButton";
-import ExternalLink from "../components/ExternalLink";
 import Product from "../components/Product";
 
 function Filmes() {

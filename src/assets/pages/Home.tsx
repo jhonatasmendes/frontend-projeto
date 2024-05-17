@@ -20,9 +20,6 @@ function Home() {
     const handleOnClickJogos = () => {
         navigate("/jogos");
     };
-    const handleOnClickRedeSociais = () => {
-        navigate("/RedeSociais");
-    };
 
     return (
         <>
