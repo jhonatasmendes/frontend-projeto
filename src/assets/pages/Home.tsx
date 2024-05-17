@@ -33,7 +33,10 @@ function Home() {
                     <NavButton onClick={handleOnClickSeries}>Series</NavButton>
                     <NavButton onClick={handleOnClickJogos}>Jogos</NavButton>
 
-                    
+                    <ExternalLink href="https://facebook.com/">Facebook</ExternalLink>
+                    <ExternalLink href="https://wa.me/5544988228342">WhatsApp</ExternalLink>
+                    <ExternalLink href="https://www.youtube.com/">YouTube</ExternalLink>
+                    <ExternalLink href="https://github.com/">GitHub</ExternalLink>
                 </div>
                 <div className="content">
                     <div className="content-overlay">
