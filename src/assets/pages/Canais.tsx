@@ -27,8 +27,8 @@ function Canais() {
                             <div className="cabecalho">
                                 <h1>Canais Aberto</h1>
                                 <div className="recent">
-                                    <Product type="noticias" src="/SBT.webp" link="https://www.youtube.com/watch?v=_iY4WxGHNzA">SBT</Product>
-                                    <Product type="noticias" src="/Record.jpg" link="https://www.cxtv.com.br/tv-ao-vivo/record-news">Record News</Product>
+                                    <Product type="noticias" src="/Globo.jpg" link="https://www.youtube.com/watch?v=_iY4WxGHNzA">RPC</Product>
+                                    <Product type="noticias" src="/Record.jpg" link="https://globoplay.globo.com/tv-globo/ao-vivo/6120663/">Record News</Product>
                                     
                                 </div>
                             </div>
