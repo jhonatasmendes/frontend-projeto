@@ -33,7 +33,7 @@ function Canais() {
                             <div className="cabecalho">
                                 <h1>Canais Aberto</h1>
                                 <div className="tv">
-                                    <Canal id="canal" src="https://www.youtube.com/embed/_iY4WxGHNzA?autoplay=1&mute=1"></Canal>
+                                    <Canal id="canal" src="https://www.youtube.com/embed/RQ6FzIqR7vA?autoplay=1&mute=1"></Canal>
                                     <div className="canais">
                                         <button onClick={handleOnClickSbt}>sbt</button>
                                         <button onClick={handleOnClickRecord}>record</button>
