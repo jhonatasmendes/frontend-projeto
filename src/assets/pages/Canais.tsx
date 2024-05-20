@@ -12,10 +12,13 @@ function Canais() {
         navigate("/home");
     };
 
-    var src = "https://www.youtube.com/embed/_iY4WxGHNzA?autoplay=1&mute=1&controls=0";
+    const canal = document.getElementById("canal");
 
     const handleOnClickSbt = () => {
-        src = "https://www.youtube.com/embed/_iY4WxGHNzA?si=8Kt3u2d6EFiGBPNG";
+        canal?.setAttribute("src", "https://www.youtube.com/embed/_iY4WxGHNzA?autoplay=1&mute=1");
+    };
+    const handleOnClickRecord = () => {
+        canal?.setAttribute("src", "https://www.youtube.com/embed/RQ6FzIqR7vA?autoplay=1&mute=1");
     };
 
     return (
@@ -29,10 +32,12 @@ function Canais() {
                         <div className="Canais">
                             <div className="cabecalho">
                                 <h1>Canais Aberto</h1>
-                                <div className="recent">
-                                    <Canal src={src}></Canal>
-                                    <button onClick={handleOnClickSbt}>sbt</button>
-                                    <button>record</button>
+                                <div className="tv">
+                                    <Canal id="canal" src="https://www.youtube.com/embed/_iY4WxGHNzA?autoplay=1&mute=1"></Canal>
+                                    <div className="canais">
+                                        <button onClick={handleOnClickSbt}>sbt</button>
+                                        <button onClick={handleOnClickRecord}>record</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

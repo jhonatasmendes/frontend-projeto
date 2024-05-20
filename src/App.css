@@ -54,3 +54,15 @@ h1, h2 {
   justify-content: center;
   align-items: center;
 }
+
+.tv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.canais {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}

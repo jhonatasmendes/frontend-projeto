@@ -1,11 +1,12 @@
 interface Prop {
     src: string;
+    id: string;
 };
 
-function Canal({ src } : Prop) {
+function Canal({ src, id } : Prop) {
     return (
         <>
-            <iframe src={src} width="400px" height="220px"></iframe>
+            <iframe id={id} src={src} width="400px" height="220px"></iframe>
         </>
     );
 };
