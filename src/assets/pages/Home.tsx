@@ -6,10 +6,7 @@ import Product from "../components/Product";
 
 function Home() {
     const navigate = useNavigate();
-
-    const handleOnClickHome = () => {
-        navigate("/home");
-    };
+   
     const handleOnClickFilmes = () => {
         navigate("/filmes");
     };
@@ -19,22 +16,29 @@ function Home() {
     const handleOnClickJogos = () => {
         navigate("/jogos");
     };
+    const handleOnClickHome = () => {
+        navigate("home");
+    };
+    const handleOnClickCanais = () => {
+        navigate("/Canais");
+    };
 
     return (
         <>
             <div className="container">
                 <div className="sidebar">
-                    <NavButton onClick={handleOnClickHome}>Home</NavButton>
+                    <NavButton onClick={handleOnClickCanais}>Canais</NavButton>
                     <NavButton onClick={handleOnClickFilmes}>Filmes</NavButton>
                     <NavButton onClick={handleOnClickSeries}>Series</NavButton>
                     <NavButton onClick={handleOnClickJogos}>Jogos</NavButton>
+                   
                 </div>
                 <div className="content">
                     <div className="content-overlay">
                         <div className="home">
                             <div className="cabecalho">
-                                <h1>Página Inicial</h1>
-                                <h2>Seja bem vindo!</h2>
+                                <h1>Seja bem vindo!</h1>
+                                <h2>JM-PLAY</h2>
                             </div>
                             <div className="conteudo">
                                 <h2>Recentes</h2>

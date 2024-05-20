@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import NavButton from "../components/NavButton";
 import Product from "../components/Product";
 
-function series() {
+function Canais() {
     const navigate = useNavigate();
 
     const handleOnClickHome = () => {
@@ -23,12 +23,12 @@ function series() {
                 </div>
                 <div className="content">
                     <div className="content-overlay">
-                        <div className="series">
+                        <div className="Canais">
                             <div className="cabecalho">
-                                <h1>Recém Adicionadas</h1>
+                                <h1>Canais Aberto</h1>
                                 <div className="recent">
-                                    <Product type="acao" src="/Into The BadLands.jpg" link="https://paineltftv.projetojmmidias.workers.dev/0:/S%C3%A9rie/Variadas/Into%20The%20Badlandes/">Into The BadLands</Product>
-                                    <Product type="suspense" src="/The Real Has Come.webp" link="https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202023/%20Assassinos%20da%20Lua%20das%20Flores%20.mp4?a=view">The Real Has Come</Product>
+                                    <Product type="noticias" src="/SBT.webp" link="https://www.youtube.com/watch?v=_iY4WxGHNzA">SBT</Product>
+                                    <Product type="noticias" src="/Record.jpg" link="https://www.cxtv.com.br/tv-ao-vivo/record-news">Record News</Product>
                                     
                                 </div>
                             </div>
@@ -40,4 +40,4 @@ function series() {
     );
 };
 
-export default series;
+export default Canais;

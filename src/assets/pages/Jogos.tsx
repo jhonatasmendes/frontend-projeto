@@ -1,21 +1,16 @@
 import { useNavigate } from "react-router-dom";
+
 // componentes
 import NavButton from "../components/NavButton";
+import Product from "../components/Product";
 
-function Jogos() {
+function jogos() {
     const navigate = useNavigate();
 
     const handleOnClickHome = () => {
         navigate("/home");
-    };
-    const handleOnClickFilmes = () => {
-        navigate("/filmes");
-    };
-    const handleOnClickSeries = () => {
-        navigate("/series");
-    };
-    const handleOnClickJogos = () => {
-        navigate("/jogos");
+        
+      
     };
 
     return (
@@ -23,15 +18,19 @@ function Jogos() {
             <div className="container">
                 <div className="sidebar">
                     <NavButton onClick={handleOnClickHome}>Home</NavButton>
-                    <NavButton onClick={handleOnClickFilmes}>Filmes</NavButton>
-                    <NavButton onClick={handleOnClickSeries}>Series</NavButton>
-                    <NavButton onClick={handleOnClickJogos}>Jogos</NavButton>
+                    
+                   
                 </div>
                 <div className="content">
                     <div className="content-overlay">
                         <div className="jogos">
                             <div className="cabecalho">
-                                <h1>Jogos</h1>
+                                <h1>jogos PS3</h1>
+                                <div className="recent">
+                                    <Product type="acao" src="/TEKKEN 6.jpg" link="https://paineltftv.projetojmmidias.workers.dev/0:/Jogos/PS3/TEKEN%206/">TEKKEN 6</Product>
+                                    <Product type="suspense" src="/FIFA 19.jpg" link="https://paineltftv.projetojmmidias.workers.dev/0:/Jogos/PS3/FIFA.19.PS3-DUPLEX.BLES02258/">FIFA 19</Product>
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -41,4 +40,4 @@ function Jogos() {
     );
 };
 
-export default Jogos;
+export default jogos;

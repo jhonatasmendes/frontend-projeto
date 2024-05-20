@@ -26,7 +26,7 @@ function Login() {
         "Jonas"
     ];
     const passwords = [
-        "1099",
+        "10999",
         "1234"
     ];
 
