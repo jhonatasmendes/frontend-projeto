@@ -13,10 +13,8 @@ function Product({ src, link, children, type } : Prop) {
         <>
             <div className={type}>
                 <div className="product">
-                    <a href={link}>
-                        <img src={src}/>
+                        <img src={src} id={link}/>
                         <p>{children}</p>
-                    </a>
                 </div>
             </div>
         </>

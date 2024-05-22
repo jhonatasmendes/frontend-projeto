@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 
 // componentes
 import NavButton from "../components/NavButton";
-import Product from "../components/Product";
 import Canal from "../components/Canal";
 
 function Canais() {
@@ -33,7 +32,7 @@ function Canais() {
                             <div className="cabecalho">
                                 <h1>Canais Aberto</h1>
                                 <div className="tv">
-                                    <Canal id="canal" src="https://www.youtube.com/embed/RQ6FzIqR7vA?autoplay=1&mute=1"></Canal>
+                                    <Canal id="canal" src=""></Canal>
                                     <div className="canais">
                                         <button onClick={handleOnClickSbt}>sbt</button>
                                         <button onClick={handleOnClickRecord}>record</button>
