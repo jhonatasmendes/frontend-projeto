@@ -9,6 +9,7 @@ import Jogos from './assets/pages/Jogos'
 import Login from './assets/pages/Login'
 import Canais from './assets/pages/Canais'
 import Reprodutor from './assets/pages/Reprodutor'
+import Episiodios from './assets/pages/Episodios'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path='jogos' element={<Jogos/>}/>
           <Route path='home' element={<Home/>}/>
           <Route path='player' element={<Reprodutor/>}/>
+          <Route path='ep' element={<Episiodios/>}/>
         </Routes>
       </BrowserRouter>
     </>

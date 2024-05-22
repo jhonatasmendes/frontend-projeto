@@ -2,22 +2,13 @@ import { useNavigate } from "react-router-dom";
 
 // componentes
 import NavButton from "../components/NavButton";
-import Canal from "../components/Canal";
+import M3U8Player from "../components/M3U8Player";
 
 function Canais() {
     const navigate = useNavigate();
 
     const handleOnClickHome = () => {
         navigate("/home");
-    };
-
-    const canal = document.getElementById("canal");
-
-    const handleOnClickSbt = () => {
-        canal?.setAttribute("src", "https://www.youtube.com/embed/_iY4WxGHNzA?autoplay=1&mute=1");
-    };
-    const handleOnClickRecord = () => {
-        canal?.setAttribute("src", "https://www.youtube.com/embed/RQ6FzIqR7vA?autoplay=1&mute=1");
     };
 
     return (
@@ -32,11 +23,7 @@ function Canais() {
                             <div className="cabecalho">
                                 <h1>Canais Aberto</h1>
                                 <div className="tv">
-                                    <Canal id="canal" src=""></Canal>
-                                    <div className="canais">
-                                        <button onClick={handleOnClickSbt}>sbt</button>
-                                        <button onClick={handleOnClickRecord}>record</button>
-                                    </div>
+                                    <M3U8Player url="https://5cf4a2c2512a2.streamlock.net/8016/8016/playlist.m3u8"></M3U8Player>
                                 </div>
                             </div>
                         </div>

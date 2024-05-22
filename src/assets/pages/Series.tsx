@@ -27,9 +27,8 @@ function series() {
                             <div className="cabecalho">
                                 <h1>Recém Adicionadas</h1>
                                 <div className="recent">
-                                    <Product type="acao" src="/Into The BadLands.jpg" link="https://paineltftv.projetojmmidias.workers.dev/0:/S%C3%A9rie/Variadas/Into%20The%20Badlandes/">Into The BadLands</Product>
+                                    <Product type="acao" src="/Into The BadLands.jpg" ep="5" link="https://paineltftv.projetojmmidias.workers.dev/0:/S%C3%A9rie/Variadas/Into%20The%20Badlandes/">Into The BadLands</Product>
                                     <Product type="suspense" src="/The Real Has Come.webp" link="https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202023/%20Assassinos%20da%20Lua%20das%20Flores%20.mp4?a=view">The Real Has Come</Product>
-                                    
                                 </div>
                             </div>
                         </div>
