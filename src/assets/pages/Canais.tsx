@@ -23,13 +23,10 @@ function Canais() {
                             <div className="cabecalho">
                                 <h1>Canais Aberto</h1>
                                 <div className="tv">
-<<<<<<< HEAD
+
                                     <M3U8Player url="https://5cf4a2c2512a2.streamlock.net/8016/8016/playlist.m3u8"></M3U8Player>
                                     <M3U8Player url="http://wowza4.catve.com.br:1935/live/livestream/media.m3u8"></M3U8Player>
-                                    
-=======
-                                    <M3U8Player url="http://15.235.11.7:14787"></M3U8Player>
->>>>>>> a311a934c4c624165c6b2af6e45ca8ae15111543
+                                     <M3U8Player url="http://15.235.11.7:14787"></M3U8Player>
                                 </div>
                                 
                             </div>
