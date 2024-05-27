@@ -8,7 +8,7 @@ type M3U8PlayerProps = {
 const M3U8Player: React.FC<M3U8PlayerProps> = ({ url }) => {
   return (
     <div>
-      <ReactPlayer url={url} controls={true} />
+      <ReactPlayer url={url} controls={true} muted={true} playing={true}/>
     </div>
   );
 };
