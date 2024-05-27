@@ -17,7 +17,7 @@ function Filmes() {
     document.onclick = function(e) {
         if (e.target.tagName == "IMG") {
             filmSrc = e.target.id;
-            navigate("/player")
+            navigate("/player");
         };
     };
 
