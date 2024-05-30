@@ -1,48 +1,95 @@
-import { useState } from 'react';
-import NavButton from '../components/NavButton'; // Certifique-se de que o caminho está correto
-import M3U8Player from '../components/M3U8Player'; // Certifique-se de que o caminho está correto
+import React, { useState } from 'react';
+import NavButton from '../components/NavButton';
+import M3U8Player from '../components/M3U8Player';
 import { useNavigate } from 'react-router-dom';
 
-const Canais = () => {
-    // Arrays de URLs para cada seção
-    const openChannelsUrls = [
-        "https://5cf4a2c2512a2.streamlock.net/8016/8016/playlist.m3u8",
-        "http://cdn.connectbr.com.br/AE/tracks-v1a1/mono.m3u8",
-        "http://flash.softhost.com.br:1935/ufg/tvufgweb/playlist.m3u8"
+interface Channel {
+    url: string;
+    name: string;
+    image: string;
+    categoria: string;
+}
+
+interface Category {
+    title: string;
+    channels: Channel[];
+}
+
+const Canais: React.FC = () => {
+    const categories: Category[] = [
+        {
+            title: "Canais Globo",
+            channels: [
+                { url: "https://5cf4a2c2512a2.streamlock.net/8016/8016/playlist.m3u8", name: "Globo", image: "https://paineltftv.projetojmmidias.workers.dev/0:/IMAGENS.LOGO/TFTV.jpg", categoria: "Aberto" },
+                { url: "http://168.205.87.198:8555/live/1431/123456/70.m3u8", name: "Globo 2", image: "https://th.bing.com/th/id/R.119c69661a9e39bedea75b4d09ed1dee?rik=eF1S0MzuH1gBzQ&pid=ImgRaw&r=0&sres=1&sresct=1", categoria: "Aberto" },
+            ]
+        },
+        {
+            title: "Canais Record",
+            channels: [
+                { url: "https://5cf4a2c2512a2.streamlock.net/8016/8016/playlist.m3u8", name: "RecordNews", image: ",/public/Globo.jpg", categoria: "Aberto" },
+                { url: "URL_DO_CANAL_2", name: "Record 2", image: "URL_DA_IMAGEM_2", categoria: "Aberto" },
+            ]
+        },
+        {
+            title: "Canais SBT",
+            channels: [
+                // Adicione os canais do SBT aqui
+            ]
+        },
+        {
+            title: "Canais Documentários",
+            channels: [
+                // Adicione os canais de documentários aqui
+            ]
+        },
+        {
+            title: "Canais Sport",
+            channels: [
+                // Adicione os canais de esportes aqui
+            ]
+        },
+        {
+            title: "Canais Adulto",
+            channels: [
+                { url: "http://cdn.adultiptv.net/anal.m3u8", name: "Anal", image: "https://files.adultiptv.net/adultiptvnet.jpg", categoria: "Adulto" },
+                { url: "http://cdn.adultiptv.net/interracial.m3u8", name: "Interracial", image: "https://files.adultiptv.net/adultiptvnet.jpg", categoria: "Adulto" },
+            ]
+        },
     ];
 
-    const closedChannelsUrls = [
-        "http://cdn.connectbr.com.br/AE/tracks-v1a1/mono.m3u8",
-        "https://5cf4a2c2512a2.streamlock.net/8016/8016/playlist.m3u8"
-        
-    ];
-
-    // Estados para os URLs atuais de cada seção
-    const [currentOpenChannelUrl, setCurrentOpenChannelUrl] = useState(openChannelsUrls[0]);
-    const [currentClosedChannelUrl, setCurrentClosedChannelUrl] = useState(closedChannelsUrls[0]);
-
-    // Funções para atualizar os estados quando os botões forem clicados
-    const handleNextOpenChannel = () => {
-        setCurrentOpenChannelUrl(prevUrl => {
-            const currentIndex = openChannelsUrls.indexOf(prevUrl);
-            const nextIndex = (currentIndex + 1) % openChannelsUrls.length;
-            return openChannelsUrls[nextIndex];
-        });
-    };
-
-    const handleNextClosedChannel = () => {
-        setCurrentClosedChannelUrl(prevUrl => {
-            const currentIndex = closedChannelsUrls.indexOf(prevUrl);
-            const nextIndex = (currentIndex + 1) % closedChannelsUrls.length;
-            return closedChannelsUrls[nextIndex];
-        });
-    };
+    const [selectedChannel, setSelectedChannel] = useState<string>(categories[0].channels[0].url);
+    const [password, setPassword] = useState<string>("");
+    const [passwordEntered, setPasswordEntered] = useState<boolean>(false);
+    const [currentCategory, setCurrentCategory] = useState<Category>(categories[0]);
 
     const navigate = useNavigate();
 
-    // Função de callback para o botão de navegação (ajuste conforme necessário)
     const handleOnClickHome = () => {
         navigate("/home");
+    };
+
+    const handleChannelSelection = (channelUrl: string) => {
+        const channel = currentCategory.channels.find(channel => channel.url === channelUrl);
+        if (channel) {
+            setSelectedChannel(channelUrl);
+        }
+    };
+
+    const handleCategorySelection = (category: Category) => {
+        setCurrentCategory(category);
+        const defaultChannelUrl = category.channels[0].url;
+        if (category.title === "Canais Adulto" && !passwordEntered) {
+            const inputPassword = prompt("Digite a senha para acessar os canais adultos:");
+            if (inputPassword === "1099") {
+                setPasswordEntered(true);
+                setSelectedChannel(defaultChannelUrl);
+            } else {
+                alert("Senha incorreta!");
+            }
+        } else {
+            setSelectedChannel(defaultChannelUrl);
+        }
     };
 
     return (
@@ -50,23 +97,33 @@ const Canais = () => {
             <div className="container">
                 <div className="sidebar">
                     <NavButton onClick={handleOnClickHome}>Home</NavButton>
+                    {categories.map((category, index) => (
+                        <button key={index} onClick={() => handleCategorySelection(category)}>
+                            {category.title}
+                        </button>
+                    ))}
+                    {/* Adicionando botão Canais SBT apenas uma vez */}
+                    {categories[2].channels.length > 0 && (
+                        <button onClick={() => handleCategorySelection(categories[2])}>
+                            Canais SBT
+                        </button>
+                    )}
                 </div>
                 <div className="content">
                     <div className="content-overlay">
                         <div className="Canais">
                             <div className="cabecalho">
-                                <h1>Canais Aberto</h1>
-                                <div className="tv">
-                                    <M3U8Player url={currentOpenChannelUrl} />
-                                    <button onClick={handleNextOpenChannel}>Next</button>
-                                </div>    
+                                <h1>{currentCategory.title}</h1>
+                                <div className="channels-list">
+                                    {currentCategory.channels.map((channel, index) => (
+                                        <button key={index} onClick={() => handleChannelSelection(channel.url)}>
+                                            <img src={channel.image} alt={channel.name} /> {channel.name}
+                                        </button>
+                                    ))}
+                                </div>
                             </div>
-                            <div className="cabecalho">
-                                <h1>Canais Fechados</h1>
-                                <div className="tv">
-                                    <M3U8Player url={currentClosedChannelUrl} />
-                                    <button onClick={handleNextClosedChannel}>Next</button>
-                                </div>    
+                            <div className="tv">
+                                <M3U8Player url={selectedChannel} />
                             </div>
                         </div>
                     </div>
