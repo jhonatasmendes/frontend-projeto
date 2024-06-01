@@ -1,12 +1,17 @@
+import React, { useState, ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
-
-// componentes
 import NavButton from "../components/NavButton";
 import Product from "../components/Product";
 
-function Home() {
+interface Logo {
+    src: string;
+    alt: string;
+}
+
+const Home: React.FC = () => {
     const navigate = useNavigate();
-   
+    const [searchTerm, setSearchTerm] = useState<string>("");
+
     const handleOnClickFilmes = () => {
         navigate("/filmes");
     };
@@ -17,8 +22,20 @@ function Home() {
         navigate("/jogos");
     };
     const handleOnClickCanais = () => {
-        navigate("/Canais");
+        navigate("/canais");
     };
+
+    const logosCanais: Logo[] = [
+        { src: "logo1.jpg", alt: "Logo 1" },
+        { src: "logo2.jpg", alt: "Logo 2" },
+        { src: "logo3.jpg", alt: "Logo 3" },
+        { src: "logo4.jpg", alt: "Logo 4" },
+        // Adicione mais logos conforme necessário
+    ];
+
+    const filteredLogos = logosCanais.filter(logo =>
+        logo.alt.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     return (
         <>
@@ -28,7 +45,6 @@ function Home() {
                     <NavButton onClick={handleOnClickFilmes}>Filmes</NavButton>
                     <NavButton onClick={handleOnClickSeries}>Series</NavButton>
                     <NavButton onClick={handleOnClickJogos}>Jogos</NavButton>
-                   
                 </div>
                 <div className="content">
                     <div className="content-overlay">
@@ -40,10 +56,24 @@ function Home() {
                             <div className="conteudo">
                                 <h2>Recém Adicionados</h2>
                                 <div className="recent">
-                                    <Product type="acao" src="Atlas.jpg" link="https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Atlas.mp4">Atlas</Product>,
-                                    <Product type="acao" src="Taro Da Morte.jpg" link="https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Taro%20Da%20Morte.mp4?a=view">Taro Da Morte</Product>,
-                                    <Product type="animacao" src="/kung-fu-panda4.jpg" link="https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Rec%C3%A9m%20Adicionado/KUNG%20FU%20PANDA%204%20(TF_2024).mp4?a=view">kung-fu-panda4</Product>
-                                    <Product type="acao" src="/Batalha dos Drones.jpg" link="https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202023/Batalha%20dos%20Drones.mp4?a=view">Batalha dos Drones</Product>
+                                    <Product type="acao" src="Atlas.jpg" link="https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Atlas.mp4">Atlas</Product>
+                                    <Product type="acao" src="Taro Da Morte.jpg" link="https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Taro%20Da%20Morte.mp4?a=view">Taro Da Morte</Product>
+                                    <Product type="animacao" src="/kung-fu-panda4.jpg" link="https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Rec%C3%A9m%20Adicionado/KUNG%20FU%20PANDA%204%20(TF_2024).mp4?a=view">Kung Fu Panda 4</Product>
+                                    <Product type="acao" src="/Batalha dos Drones.jpg" link="https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202023/Batalha%20dos%20Drones.mp4?a=view">Batalha dos Drones</Product>,
+                                    <Product type="acao" src="/Duro De Atuar 2.jpg" link="Duro De Atuar 2">Duro De Atuar 2</Product>
+                                </div>
+                                <h2>Canais</h2>
+                                <input
+                                    type="text"
+                                    placeholder="Buscar canais..."
+                                    value={searchTerm}
+                                    onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
+                                    style={{ margin: '20px', padding: '10px', fontSize: '16px' }}
+                                />
+                                <div className="logos-canais">
+                                    {filteredLogos.map((logo, index) => (
+                                        <img key={index} src={logo.src} alt={logo.alt} className="logo-canal" />
+                                    ))}
                                 </div>
                             </div>
                         </div>

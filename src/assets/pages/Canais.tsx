@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import NavButton from '../components/NavButton';
 import M3U8Player from '../components/M3U8Player';
 import { useNavigate } from 'react-router-dom';
@@ -56,12 +56,18 @@ const Canais: React.FC = () => {
                 { url: "http://cdn.adultiptv.net/interracial.m3u8", name: "Interracial", image: "https://files.adultiptv.net/adultiptvnet.jpg", categoria: "Adulto" },
             ]
         },
+        {
+            title: "Outros Canais",
+            channels: [
+                // Adicione os outros canais aqui
+            ]
+        },
     ];
 
     const [selectedChannel, setSelectedChannel] = useState<string>(categories[0].channels[0].url);
-    const [password, setPassword] = useState<string>("");
     const [passwordEntered, setPasswordEntered] = useState<boolean>(false);
     const [currentCategory, setCurrentCategory] = useState<Category>(categories[0]);
+    const [searchTerm, setSearchTerm] = useState<string>("");
 
     const navigate = useNavigate();
 
@@ -92,6 +98,10 @@ const Canais: React.FC = () => {
         }
     };
 
+    const filteredChannels = currentCategory.channels.filter(channel =>
+        channel.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     return (
         <>
             <div className="container">
@@ -102,28 +112,43 @@ const Canais: React.FC = () => {
                             {category.title}
                         </button>
                     ))}
-                    {/* Adicionando botão Canais SBT apenas uma vez */}
-                    {categories[2].channels.length > 0 && (
-                        <button onClick={() => handleCategorySelection(categories[2])}>
-                            Canais SBT
-                        </button>
-                    )}
                 </div>
                 <div className="content">
                     <div className="content-overlay">
-                        <div className="Canais">
+                        <input
+                            type="text"
+                            placeholder="Buscar canais..."
+                            value={searchTerm}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
+                            style={{ margin: '20px', padding: '10px', fontSize: '16px' }}
+                        />
+                        <div className="canais">
                             <div className="cabecalho">
                                 <h1>{currentCategory.title}</h1>
                                 <div className="channels-list">
-                                    {currentCategory.channels.map((channel, index) => (
-                                        <button key={index} onClick={() => handleChannelSelection(channel.url)}>
-                                            <img src={channel.image} alt={channel.name} /> {channel.name}
-                                        </button>
+                                    {filteredChannels.map((channel, index) => (
+                                        <div key={index} className="channel-item">
+                                            <button onClick={() => handleChannelSelection(channel.url)}>
+                                                <img src={channel.image} alt={channel.name} className="logo-canal" /> {channel.name}
+                                            </button>
+                                        </div>
                                     ))}
                                 </div>
                             </div>
                             <div className="tv">
                                 <M3U8Player url={selectedChannel} />
+                                <div className="change-channel">
+                                    <h2>Canais</h2>
+                                    <div className="channels-list">
+                                        {filteredChannels.map((channel, index) => (
+                                            <div key={index} className="channel-item">
+                                                <button onClick={() => handleChannelSelection(channel.url)}>
+                                                    {channel.name}
+                                                </button>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
