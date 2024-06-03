@@ -64,7 +64,7 @@ function Filmes() {
     };
 
     const recentFilms: Film[] = [
-        { type: "acao", src: "Duro De Atuar 2.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Rec%C3%A9m%20Adicionado/Duro%20De%20Atuar%202.mp4?a=view", title: "Duro De Atuar 2" },
+        { type: "acao", src: "Duro De Atuar 2.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Rec%C3%A9m%20Adicionado/Duro%20De%20Atuar%202.mp4", title: "Duro De Atuar 2" },
         { type: "acao", src: "Atlas.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Atlas.mp4", title: "Atlas" },
         { type: "acao", src: "Taro Da Morte.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Taro%20Da%20Morte.mp4?a=view", title: "Taro Da Morte" },
         { type: "acao", src: "Uma Prova De Coragem.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Uma%20Prova%20De%20Coragem.mp4?a=view", title: "Uma Prova De Coragem" },
