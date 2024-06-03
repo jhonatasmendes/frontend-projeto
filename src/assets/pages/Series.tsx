@@ -13,11 +13,12 @@ function series() {
         navigate("/home");
     };
 
-    document.onclick = function(e) {
-        if (e.target.tagName == "IMG") {
-            seriesEp = e.target.className;
+    document.onclick = function(e: MouseEvent) {
+        const target = e.target as HTMLImageElement;
+        if (target.tagName === "IMG") {
+            seriesEp = target.id;
             navigate("/selecEp");
-        };
+        }
     };
 
     return (
