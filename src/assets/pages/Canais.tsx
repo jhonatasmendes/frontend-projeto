@@ -20,21 +20,30 @@ const Canais: React.FC = () => {
         {
             title: "Canais Globo",
             channels: [
-                { url: "https://5cf4a2c2512a2.streamlock.net/8016/8016/playlist.m3u8", name: "Globo", image: "https://paineltftv.projetojmmidias.workers.dev/0:/IMAGENS.LOGO/TFTV.jpg", categoria: "Aberto" },
-                { url: "http://168.205.87.198:8555/live/1431/123456/70.m3u8", name: "Globo 2", image: "https://th.bing.com/th/id/R.119c69661a9e39bedea75b4d09ed1dee?rik=eF1S0MzuH1gBzQ&pid=ImgRaw&r=0&sres=1&sresct=1", categoria: "Aberto" },
+                { url: "http://wowza4.catve.com.br:1935/live/livestream/media.m3u8", name: "Globo", image: "https://paineltftv.projetojmmidias.workers.dev/0:/IMAGENS.LOGO/TFTV.jpg", categoria: "Aberto" },
+                { url: "https://5cf4a2c2512a2.streamlock.net/8016/8016/playlist.m3u8", name: "Globo 2", image: "https://th.bing.com/th/id/R.119c69661a9e39bedea75b4d09ed1dee?rik=eF1S0MzuH1gBzQ&pid=ImgRaw&r=0&sres=1&sresct=1", categoria: "Aberto" },
+                { url: "http://wowza4.catve.com.br:1935/live/livestream/media.m3u8", name: "Globo 2", image: "https://th.bing.com/th/id/R.119c69661a9e39bedea75b4d09ed1dee?rik=eF1S0MzuH1gBzQ&pid=ImgRaw&r=0&sres=1&sresct=1", categoria: "Aberto" },
             ]
         },
         {
             title: "Canais Record",
             channels: [
-                { url: "https://5cf4a2c2512a2.streamlock.net/8016/8016/playlist.m3u8", name: "RecordNews", image: ",/public/Globo.jpg", categoria: "Aberto" },
-                { url: "URL_DO_CANAL_2", name: "Record 2", image: "URL_DA_IMAGEM_2", categoria: "Aberto" },
+                { url: "https://5cf4a2c2512a2.streamlock.net/8016/8016/playlist.m3u8", name: "RecordNews", image: "RecordNews.png", categoria: "Aberto" },
+                { url: "http://wowza4.catve.com.br:1935/live/livestream/media.m3u8", name: "Record", image: "Design sem nome.png", categoria: "Aberto" },
             ]
         },
         {
             title: "Canais SBT",
             channels: [
                 // Adicione os canais do SBT aqui
+            ]
+        },
+
+        {
+            title: "Canais Evangelicos",
+            channels: [
+                { url: "http://painelvj.com.br/tvaguaboa2/tvaguaboa2.sdp/playlist.m3u8", name: "TvEvangelizar", image: "Tv Evangelizar.png", categoria: "Aberto" },
+                // Adicione os canais de esportes aqui
             ]
         },
         {
