@@ -1,4 +1,4 @@
-#EXTM3U
+"#EXTM3U
 #EXTINF:1,AgroBrasil
 http://45.162.230.234:1935/agrobrasiltv/agrobrasiltv/playlist.m3u8
 #EXTINF:2,TvFonte
@@ -24,4 +24,4 @@ http://cdn.connectbr.com.br:80/Record-News-HD/index.m3u8
 #EXTINF:12,Globo
 http://wowza4.catve.com.br:1935/live/livestream/media.m3u8
 #EXTINF:13,AgroBrasil_1
-http://15.235.11.7:14787
+http://15.235.11.7:14787"
