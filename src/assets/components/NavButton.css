@@ -1,5 +1,5 @@
 /* Estilos para o botão de navegação */
-.NavButton {
+.navButton {
     border: 0;
     background-color: transparent;
     width: 100%;
@@ -9,6 +9,6 @@
     cursor: pointer;
 }
 
-.NavButton:hover {
+.navButton:hover {
     background-color: rgb(141, 62, 34);
 }
