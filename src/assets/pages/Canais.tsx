@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import NavButton from '../components/NavButton'; // Certifique-se de que o caminho está correto
 import M3U8Player from '../components/M3U8Player'; // Certifique-se de que o caminho está correto
+import { useNavigate } from 'react-router-dom';
 
 const Canais = () => {
     // Arrays de URLs para cada seção
@@ -31,6 +32,8 @@ const Canais = () => {
         
     ];
 
+    const navigate = useNavigate();
+
     // Estados para os URLs atuais de cada seção
     const [currentOpenChannelUrl, setCurrentOpenChannelUrl] = useState(openChannelsUrls[0]);
     const [currentClosedChannelUrl, setCurrentClosedChannelUrl] = useState(closedChannelsUrls[0]);
@@ -54,7 +57,7 @@ const Canais = () => {
 
     // Função de callback para o botão de navegação (ajuste conforme necessário)
     const handleOnClickHome = () => {
-        console.log('Home button clicked');
+        navigate("/home");
     };
 
     return (
@@ -68,35 +71,6 @@ const Canais = () => {
                         <div className="Canais">
                             <div className="cabecalho">
                                 <h1>Canais Aberto</h1>
-                                <div className="tv">
-                                    <M3U8Player url={currentOpenChannelUrl} />
-                                    <button onClick={handleNextOpenChannel}>Next</button>
-                                </div>    
-                            </div>
-                            <div className="cabecalho">
-                                <h1>Canais Fechados</h1>
-                                <div className="tv">
-                                    <M3U8Player url={currentClosedChannelUrl} />
-                                    <button onClick={handleNextClosedChannel}>Next</button>
-                                </div>    
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </>
-    );
-    return (
-        <>
-            <div className="container">
-                <div className="sidebar">
-                    <NavButton onClick={handleOnClickHome}>Lançamentos</NavButton>
-                </div>
-                <div className="content">
-                    <div className="content-overlay">
-                        <div className="Canais">
-                            <div className="cabecalho">
-                                <h1>fechados</h1>
                                 <div className="tv">
                                     <M3U8Player url={currentOpenChannelUrl} />
                                     <button onClick={handleNextOpenChannel}>Next</button>
