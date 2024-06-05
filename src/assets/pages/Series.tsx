@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import NavButton from "../components/NavButton";
 import Product from "../components/Product";
 
-export var seriesEp = "";
+export var seriesId = 0;
 
 function series() {
     const navigate = useNavigate();
@@ -16,9 +16,9 @@ function series() {
     document.onclick = function(e: MouseEvent) {
         const target = e.target as HTMLImageElement;
         if (target.tagName === "IMG") {
-            seriesEp = target.id;
+            seriesId = parseInt(target.className);
             navigate("/selecEp");
-        }
+        };
     };
 
     return (
@@ -35,8 +35,8 @@ function series() {
                             <div className="cabecalho">
                                 <h1>Recém Adicionadas</h1>
                                 <div className="recent">
-                                    <Product type="acao" src="/Into The BadLands.jpg" ep="6" link="https://paineltftv.projetojmmidias.workers.dev/0:/S%C3%A9rie/Variadas/Into%20The%20Badlandes/">Into The BadLands</Product>
-                                    <Product type="suspense" src="/The Real Has Come.webp" link="https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202023/%20Assassinos%20da%20Lua%20das%20Flores%20.mp4?a=view">The Real Has Come</Product>
+                                    <Product type="acao" src="/Into The BadLands.jpg" id="0" link="https://paineltftv.projetojmmidias.workers.dev/0:/S%C3%A9rie/Variadas/Into%20The%20Badlandes/">Into The BadLands</Product>
+                                    <Product type="suspense" src="/The Real Has Come.webp" id="1" link="https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202023/%20Assassinos%20da%20Lua%20das%20Flores%20.mp4?a=view">The Real Has Come</Product>
                                 </div>
                             </div>
                         </div>

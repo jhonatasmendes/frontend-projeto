@@ -6,15 +6,15 @@ interface Prop {
     link: string;
     children: ReactNode;
     type: string;
-    ep?: string;
+    id?: string;
 };
 
-function Product({ src, link, children, type, ep } : Prop) {
+function Product({ src, link, children, type, id } : Prop) {
     return (
         <>
             <div className={type}>
                 <div className="product">
-                    <img src={src} id={link} className={ep}/>
+                    <img src={src} id={link} className={id}/>
                     <p>{children}</p>
                 </div>
             </div>
