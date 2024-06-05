@@ -40,6 +40,16 @@ const Canais: React.FC = () => {
         },
 
         {
+            title: "Canais 24Horas",
+            channels: [
+                { url: "https://paineltftv.projetojmmidias.workers.dev/0:/M3U8/CanalOFF.m3u8", name: "Pluto tv Drama", image: "", categoria: "Aberto" },
+                { url: "http://painelvj.com.br/tvaguaboa2/tvaguaboa2.sdp/playlist.m3u8", name: "TvEvangelizar", image: "Tv Evangelizar.png", categoria: "Aberto" },
+                { url: "http://painelvj.com.br/tvaguaboa2/tvaguaboa2.sdp/playlist.m3u8", name: "TvEvangelizar", image: "Tv Evangelizar.png", categoria: "Aberto" },
+                // Adicione os canais do SBT aqui
+            ]
+        },
+
+        {
             title: "Canais Evangelicos",
             channels: [
                 { url: "http://painelvj.com.br/tvaguaboa2/tvaguaboa2.sdp/playlist.m3u8", name: "TvEvangelizar", image: "Tv Evangelizar.png", categoria: "Aberto" },
