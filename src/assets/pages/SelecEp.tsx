@@ -1,12 +1,13 @@
 import { seriesEp } from "./Series";
 
 function SelecEp() {
-    var epCount = parseInt(seriesEp);
-    var holder = document.getElementById("ep-holder");
+    const ep = [];
 
-    for (let i = 0; i < epCount; i++) {
-        holder?.appendChild(document.createElement("a"));
+    for (let i = 1; i < parseInt(seriesEp); i++) {
+        ep.push({ title: `Episódio ${i}` });
     };
+
+    console.log(ep);
 
     return (
         <>
