@@ -20,35 +20,30 @@ const Canais: React.FC = () => {
         {
             title: "Canais Globo",
             channels: [
-                { url: "http://wowza4.catve.com.br:1935/live/livestream/media.m3u8", name: "Globo", image: "https://paineltftv.projetojmmidias.workers.dev/0:/IMAGENS.LOGO/TFTV.jpg", categoria: "Aberto" },
-                { url: "https://5cf4a2c2512a2.streamlock.net/8016/8016/playlist.m3u8", name: "Globo 2", image: "https://th.bing.com/th/id/R.119c69661a9e39bedea75b4d09ed1dee?rik=eF1S0MzuH1gBzQ&pid=ImgRaw&r=0&sres=1&sresct=1", categoria: "Aberto" },
-                { url: "http://wowza4.catve.com.br:1935/live/livestream/media.m3u8", name: "Globo 2", image: "https://th.bing.com/th/id/R.119c69661a9e39bedea75b4d09ed1dee?rik=eF1S0MzuH1gBzQ&pid=ImgRaw&r=0&sres=1&sresct=1", categoria: "Aberto" },
+                { url: "https://5cf4a2c2512a2.streamlock.net/8016/8016/playlist.m3u8", name: "Globo", image: "https://paineltftv.projetojmmidias.workers.dev/0:/IMAGENS.LOGO/TFTV.jpg", categoria: "Aberto" },
+                { url: "http://168.205.87.198:8555/live/1431/123456/70.m3u8", name: "Globo 2", image: "https://th.bing.com/th/id/R.119c69661a9e39bedea75b4d09ed1dee?rik=eF1S0MzuH1gBzQ&pid=ImgRaw&r=0&sres=1&sresct=1", categoria: "Aberto" },
             ]
         },
         {
             title: "Canais Record",
             channels: [
-                { url: "https://5cf4a2c2512a2.streamlock.net/8016/8016/playlist.m3u8", name: "RecordNews", image: "RecordNews.png", categoria: "Aberto" },
-                { url: "http://wowza4.catve.com.br:1935/live/livestream/media.m3u8", name: "Record", image: "Design sem nome.png", categoria: "Aberto" },
+                { url: "https://5cf4a2c2512a2.streamlock.net/8016/8016/playlist.m3u8", name: "RecordNews", image: "URL_DA_IMAGEM", categoria: "Aberto" },
+                { url: "URL_DO_CANAL_2", name: "Record 2", image: "URL_DA_IMAGEM_2", categoria: "Aberto" },
             ]
         },
         {
             title: "Canais SBT",
             channels: [
+                { url: "http://s.streambr.site:80/824578/036170/3060507.m3u8", name: "Record 2", image: "URL_DA_IMAGEM_2", categoria: "Aberto" },
+                
                 // Adicione os canais do SBT aqui
-            ]
-        },
-
-        {
-            title: "Canais Evangelicos",
-            channels: [
-                { url: "http://painelvj.com.br/tvaguaboa2/tvaguaboa2.sdp/playlist.m3u8", name: "TvEvangelizar", image: "Tv Evangelizar.png", categoria: "Aberto" },
-                // Adicione os canais de esportes aqui
             ]
         },
         {
             title: "Canais Documentários",
             channels: [
+                { url: "http://s.streambr.site:80/824578/036170/3060507.m3u8", name: "Record ", image: "URL_DA_IMAGEM_2", categoria: "Aberto" },
+                { url: "http://s.streambr.site:80/824578/036170/3060602.m3u8", name: "BAND CURITIBA HD", image: "URL_DA_IMAGEM_2", categoria: "Aberto" },
                 // Adicione os canais de documentários aqui
             ]
         },
@@ -115,9 +110,23 @@ const Canais: React.FC = () => {
         <>
             <div className="container">
                 <div className="sidebar">
-                    <NavButton onClick={handleOnClickHome}>Home</NavButton>
+                    <NavButton onClick={handleOnClickHome} style={{ marginBottom: '10px' }}>Home</NavButton>
                     {categories.map((category, index) => (
-                        <button key={index} onClick={() => handleCategorySelection(category)}>
+                        <button
+                            key={index}
+                            onClick={() => handleCategorySelection(category)}
+                            style={{
+                                padding: '10px',
+                                marginBottom: '5px',
+                                backgroundColor: '#f0f0f0',
+                                border: '1px solid #ccc',
+                                borderRadius: '5px',
+                                cursor: 'pointer',
+                                width: '100%',
+                                textAlign: 'left',
+                                textTransform: 'uppercase'
+                            }}
+                        >
                             {category.title}
                         </button>
                     ))}
@@ -129,7 +138,13 @@ const Canais: React.FC = () => {
                             placeholder="Buscar canais..."
                             value={searchTerm}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
-                            style={{ margin: '20px', padding: '10px', fontSize: '16px' }}
+                            style={{
+                                margin: '20px',
+                                padding: '10px',
+                                fontSize: '16px',
+                                width: '100%',
+                                boxSizing: 'border-box'
+                            }}
                         />
                         <div className="canais">
                             <div className="cabecalho">
@@ -137,8 +152,31 @@ const Canais: React.FC = () => {
                                 <div className="channels-list">
                                     {filteredChannels.map((channel, index) => (
                                         <div key={index} className="channel-item">
-                                            <button onClick={() => handleChannelSelection(channel.url)}>
-                                                <img src={channel.image} alt={channel.name} className="logo-canal" /> {channel.name}
+                                            <button
+                                                onClick={() => handleChannelSelection(channel.url)}
+                                                style={{
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    padding: '10px',
+                                                    marginBottom: '5px',
+                                                    backgroundColor: '#fff',
+                                                    border: '1px solid #ccc',
+                                                    borderRadius: '5px',
+                                                    cursor: 'pointer',
+                                                    width: '100%'
+                                                }}
+                                            >
+                                                <img
+                                                    src={channel.image}
+                                                    alt={channel.name}
+                                                    style={{
+                                                        width: '30px',
+                                                        height: '30px',
+                                                        marginRight: '10px',
+                                                        borderRadius: '50%'
+                                                    }}
+                                                />
+                                                <span>{channel.name}</span>
                                             </button>
                                         </div>
                                     ))}
@@ -151,8 +189,21 @@ const Canais: React.FC = () => {
                                     <div className="channels-list">
                                         {filteredChannels.map((channel, index) => (
                                             <div key={index} className="channel-item">
-                                                <button onClick={() => handleChannelSelection(channel.url)}>
-                                                    {channel.name}
+                                                <button
+                                                    onClick={() => handleChannelSelection(channel.url)}
+                                                    style={{
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        padding: '10px',
+                                                        marginBottom: '5px',
+                                                        backgroundColor: '#fff',
+                                                        border: '1px solid #ccc',
+                                                        borderRadius: '5px',
+                                                        cursor: 'pointer',
+                                                        width: '100%'
+                                                    }}
+                                                >
+                                                    <span>{channel.name}</span>
                                                 </button>
                                             </div>
                                         ))}

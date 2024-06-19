@@ -11,10 +11,9 @@ function jogos() {
         navigate("/home");
     };
 
-    document.onclick = function(e: MouseEvent) {
-        const target = e.target as HTMLImageElement;
-        if (target.tagName == "IMG") {
-            window.open(target.id);
+    document.onclick = function(e) {
+        if (e.target.tagName == "IMG") {
+            window.open(e.target.id);
         };
     };
 

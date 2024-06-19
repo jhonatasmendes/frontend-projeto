@@ -26,7 +26,7 @@ const Home: React.FC = () => {
     };
 
     const logosCanais: Logo[] = [
-        { src: "", alt: "" },
+        { src: "logo1.jpg", alt: "Logo 1" },
         { src: "logo2.jpg", alt: "Logo 2" },
         { src: "logo3.jpg", alt: "Logo 3" },
         { src: "logo4.jpg", alt: "Logo 4" },
