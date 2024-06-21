@@ -1,18 +1,31 @@
-const Globo = "http://15.235.11.7:14787"
-const fishTV = "http://15.235.11.7:14165"
-const Globo_ALT = "http://15.235.11.7:14779"
-const Futura = "http://15.235.11.7:14167"
-const Nyck_Junior = "http://15.235.11.7:14574"
-const WooHoo = "http://15.235.11.7:14159"
-const Globo_ALT2 = "http://15.235.11.7:14770"
-const Canal_Off = "http://15.235.11.7:14075"
-const Canal_Off_Alt = "http://15.235.11.7:14074"
-const GloboNews = "http://15.235.11.7:14125"
-const GloboNews_ALT = "http://15.235.11.7:14127"
-const CNN = "http://15.235.11.7:14128"
-const Canal_E= "http://15.235.11.7:14151"
-const CanelaTeleNovelas = "https://stream.ads.ottera.tv/playlist.m3u8?network_id=1152"
-const CineAção = "http://stitcher-ipv4.pluto.tv/v1/stitch/embed/hls/channel/5f120f41b7d403000783a6d6/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=1YNY&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&profileLimit=&profileFloor=&embedPartner=samsung-tvplus"
-const CineFamilia = "http://stitcher-ipv4.pluto.tv/v1/stitch/embed/hls/channel/5f171f032cd22e0007f17f3d/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=1YNY&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&profileLimit=&profileFloor=&embedPartner=samsung-tvplus"
-const CineTerror = "http://stitcher-ipv4.pluto.tv/v1/stitch/embed/hls/channel/5f12111c9e6c2c00078ef3bb/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=1YNY&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&profileLimit=&profileFloor=&embedPartner=samsung-tvplus"
-const CineComedia = "http://stitcher-ipv4.pluto.tv/v1/stitch/embed/hls/channel/5f12101f0b12f00007844c7c/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=1YNY&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&profileLimit=&profileFloor=&embedPartner=samsung-tvplus"
+import React, { useEffect, useRef } from 'react';
+import Hls from 'hls.js';
+
+interface M3U8PlayerProps {
+    url: string;
+}
+
+const M3U8Player: React.FC<M3U8PlayerProps> = ({ url }) => {
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    useEffect(() => {
+        if (videoRef.current) {
+            if (Hls.isSupported()) {
+                const hls = new Hls();
+                hls.loadSource(url);
+                hls.attachMedia(videoRef.current);
+                return () => {
+                    hls.destroy();
+                };
+            } else if (videoRef.current.canPlayType('application/vnd.apple.mpegurl')) {
+                videoRef.current.src = url;
+            }
+        }
+    }, [url]);
+
+    return (
+        <video ref={videoRef} controls style={{ width: '100%' }} />
+    );
+};
+
+export default M3U8Player;

@@ -26,11 +26,7 @@ const Home: React.FC = () => {
     };
 
     const logosCanais: Logo[] = [
-        { src: "logo1.jpg", alt: "Logo 1" },
-        { src: "logo2.jpg", alt: "Logo 2" },
-        { src: "logo3.jpg", alt: "Logo 3" },
-        { src: "logo4.jpg", alt: "Logo 4" },
-        // Adicione mais logos conforme necessário
+        
     ];
 
     const filteredLogos = logosCanais.filter(logo =>
@@ -62,7 +58,7 @@ const Home: React.FC = () => {
                                     <Product type="acao" src="/Batalha dos Drones.jpg" link="https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202023/Batalha%20dos%20Drones.mp4?a=view">Batalha dos Drones</Product>,
                                     <Product type="acao" src="/Duro De Atuar 2.jpg" link="Duro De Atuar 2">Duro De Atuar 2</Product>
                                 </div>
-                                <h2>Canais</h2>
+                               
                                 <input
                                     type="text"
                                     placeholder="Buscar canais..."
