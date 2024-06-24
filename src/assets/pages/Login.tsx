@@ -49,6 +49,7 @@ function Login() {
         setUser(e.target.value);
         setAdm(e.target.value);
     };
+    //ttt
     const handlePassword = (e: ChangeEvent<HTMLInputElement>) => {
         setPassword(e.target.value);
         setSenha(e.target.value);
