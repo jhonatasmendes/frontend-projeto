@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
 // componentes
@@ -6,19 +7,28 @@ import Product from "../components/Product";
 
 export var seriesEp = "";
 
-function series() {
+const Series: React.FC = () => {
     const navigate = useNavigate();
 
     const handleOnClickHome = () => {
         navigate("/home");
     };
 
-    document.onclick = function(e) {
-        if (e.target.tagName == "IMG") {
-            seriesEp = e.target.className;
-            navigate("/selecEp");
+    useEffect(() => {
+        const handleClick = (e: MouseEvent) => {
+            const target = e.target as HTMLElement;
+            if (target && target.tagName === "IMG") {
+                seriesEp = target.className;
+                navigate("/selecEp");
+            }
         };
-    };
+
+        document.addEventListener("click", handleClick);
+
+        return () => {
+            document.removeEventListener("click", handleClick);
+        };
+    }, [navigate]);
 
     return (
         <>
@@ -46,4 +56,4 @@ function series() {
     );
 };
 
-export default series;
+export default Series;
