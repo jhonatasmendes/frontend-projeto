@@ -1,3 +1,5 @@
+// Canais.tsx
+
 import React, { useState, ChangeEvent } from 'react';
 import NavButton from '../components/NavButton';
 import M3U8Player from '../components/M3U8Player';
@@ -20,9 +22,8 @@ const Canais: React.FC = () => {
         {
             title: "Canais Globo",
             channels: [
-                { url: "http://15.235.11.7:14787", name: "Globo", image: "https://paineltftv.projetojmmidias.workers.dev/0:/IMAGENS.LOGO/TFTV.jpg", categoria: "Aberto" },
-                { url: "https://5cf4a2c2512a2.streamlock.net/8016/8016/playlist.m3u8", name: "Globo", image: "https://paineltftv.projetojmmidias.workers.dev/0:/IMAGENS.LOGO/TFTV.jpg", categoria: "Aberto" },
-                { url: "https://www.youtube.com/embed/6hsscOHHrks?si=2fhbnU14TisktvuA", name: "Globo 2", image: "https://th.bing.com/th/id/R.119c69661a9e39bedea75b4d09ed1dee?rik=eF1S0MzuH1gBzQ&pid=ImgRaw&r=0&sres=1&sresct=1", categoria: "Aberto" },
+                
+                { url: "https://5cf4a2c2512a2.streamlock.net/8016/8016/playlist.m3u8", name: "Globo", image: "https://th.bing.com/th/id/R.119c69661a9e39bedea75b4d09ed1dee?rik=eF1S0MzuH1gBzQ&pid=ImgRaw&r=0&sres=1&sresct=1", categoria: "Aberto" },
             ]
         },
         {
@@ -35,7 +36,14 @@ const Canais: React.FC = () => {
         {
             title: "Canais SBT",
             channels: [
-                { url: "http://s.streambr.site:80/824578/036170/3060507.m3u8", name: "Record 2", image: "URL_DA_IMAGEM_2", categoria: "Aberto" },
+                { url: "https://www.youtube.com/embed/T-7Mhcz_7tM?si=8qexD1KQhtqGTckj", name: "SBT", image: "https://th.bing.com/th/id/R.c137f4b422793b4a46266b6d701b95cd?rik=hiifW1p57qKSXA&pid=ImgRaw&r=0", categoria: "Aberto" },
+            ]
+        },
+        {
+            title: "Canais Band",
+            channels: [
+                { url: "http://64.31.49.186:25461/live/082333/673203/327715.m3u8", name: "Band 1", image: "URL_DA_IMAGEM_1", categoria: "Aberto" },
+                { url: "http://64.31.49.186:25461/live/082333/673203/327715.m3u8?token=MENIM2F0WVBva21RS2w1", name: "Band 2", image: "URL_DA_IMAGEM_2", categoria: "Aberto" },
             ]
         },
         {
@@ -52,16 +60,23 @@ const Canais: React.FC = () => {
             ]
         },
         {
-            title: "Canais Adulto",
+            title: "Canais YouTube",
             channels: [
-                { url: "http://cdn.adultiptv.net/anal.m3u8", name: "Anal", image: "https://files.adultiptv.net/adultiptvnet.jpg", categoria: "Adulto" },
-                { url: "http://cdn.adultiptv.net/interracial.m3u8", name: "Interracial", image: "https://files.adultiptv.net/adultiptvnet.jpg", categoria: "Adulto" },
+                { url: "https://www.youtube.com/embed/T-7Mhcz_7tM?si=8qexD1KQhtqGTckj", name: "", image: "https://th.bing.com/th/id/R.c137f4b422793b4a46266b6d701b95cd?rik=hiifW1p57qKSXA&pid=ImgRaw&r=0", categoria: "Aberto" },
+                { url: "https://www.youtube.com/embed/2K37hThe5Lg?si=SVA0BqlYlYD0z0zq", name: "", image: "https://th.bing.com/th/id/R.119c69661a9e39bedea75b4d09ed1dee?rik=eF1S0MzuH1gBzQ&pid=ImgRaw&r=0&sres=1&sresct=1", categoria: "Aberto" },
             ]
         },
         {
             title: "Outros Canais",
             channels: [
                 // Adicione os outros canais aqui
+            ]
+        },
+        {
+            title: "Canais Adulto",
+            channels: [
+                { url: "http://cdn.adultiptv.net/anal.m3u8", name: "Anal", image: "https://files.adultiptv.net/adultiptvnet.jpg", categoria: "Adulto" },
+                { url: "http://cdn.adultiptv.net/interracial.m3u8", name: "Interracial", image: "https://files.adultiptv.net/adultiptvnet.jpg", categoria: "Adulto" },
             ]
         },
     ];
