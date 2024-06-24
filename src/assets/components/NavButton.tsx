@@ -1,15 +1,16 @@
-import { ReactNode } from "react";
+import { CSSProperties, ReactNode } from "react";
 import "./NavButton.css"
 
 interface Prop {
     children: ReactNode;
+    // style: CSSProperties;
     onClick?: () => void;
 };
 
-function NavButton({children, onClick} : Prop) {
+function NavButton({children, /*style,*/ onClick} : Prop) {
     return (
         <>
-            <button className="navButton" onClick={onClick}>{children}</button>
+            <button className="navButton" onClick={onClick} /*style={style}*/>{children}</button>
         </>
     );
 };

@@ -36,14 +36,9 @@ const Canais: React.FC = () => {
         {
             title: "Canais SBT",
             channels: [
-                { url: "https://www.youtube.com/embed/T-7Mhcz_7tM?si=8qexD1KQhtqGTckj", name: "SBT", image: "https://th.bing.com/th/id/R.c137f4b422793b4a46266b6d701b95cd?rik=hiifW1p57qKSXA&pid=ImgRaw&r=0", categoria: "Aberto" },
-            ]
-        },
-        {
-            title: "Canais Band",
-            channels: [
-                { url: "http://64.31.49.186:25461/live/082333/673203/327715.m3u8", name: "Band 1", image: "URL_DA_IMAGEM_1", categoria: "Aberto" },
-                { url: "http://64.31.49.186:25461/live/082333/673203/327715.m3u8?token=MENIM2F0WVBva21RS2w1", name: "Band 2", image: "URL_DA_IMAGEM_2", categoria: "Aberto" },
+                { url: "http://s.streambr.site:80/824578/036170/3060507.m3u8", name: "Record 2", image: "URL_DA_IMAGEM_2", categoria: "Aberto" },
+                
+                // Adicione os canais do SBT aqui
             ]
         },
         {
@@ -51,6 +46,7 @@ const Canais: React.FC = () => {
             channels: [
                 { url: "http://s.streambr.site:80/824578/036170/3060507.m3u8", name: "Record ", image: "URL_DA_IMAGEM_2", categoria: "Aberto" },
                 { url: "http://s.streambr.site:80/824578/036170/3060602.m3u8", name: "BAND CURITIBA HD", image: "URL_DA_IMAGEM_2", categoria: "Aberto" },
+                // Adicione os canais de documentários aqui
             ]
         },
         {
@@ -117,7 +113,7 @@ const Canais: React.FC = () => {
     return (
         <div className="container">
             <div className="sidebar">
-                <NavButton onClick={handleOnClickHome} style={{ marginBottom: '10px' }}>Home</NavButton>
+                <NavButton onClick={handleOnClickHome} /*</div>style={{ marginBottom: '10px' }}*/>Home</NavButton>
                 {categories.map((category, index) => (
                     <button
                         key={index}
