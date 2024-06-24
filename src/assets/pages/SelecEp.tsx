@@ -15,7 +15,7 @@ function SelecEp() {
     const addEpisodes = () => {
         const newEpisodes = [];
         for (let i = 1; i <= seriesData[seriesId].ep; i++) {
-            newEpisodes.push(<><h3 className={`${seriesData[seriesId].link}${i}.mp4`}>Episode {episodes.length + i}</h3></>);
+            newEpisodes.push(<><h3 className={`${seriesData[seriesId].link}${i}.mp4`}>Episódio {episodes.length + i}</h3></>);
         };
         setEpisodes([episodes, newEpisodes]);
     };
@@ -36,12 +36,14 @@ function SelecEp() {
 
     return (
         <>
-            <div>
+            <div className="episode-select">
                 <h1>{seriesData[seriesId].title}</h1>
                 <div ref={holderRef}>
                     <ul>
                         {episodes.map((episode, index) => (
-                            <li key={index}>{episode}</li>
+                            <li key={index}>
+                                {episode}
+                            </li>
                         ))}
                     </ul>
                 </div>

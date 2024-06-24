@@ -1,4 +1,28 @@
-li {
+.episode-select {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    height: 96vh;
+    /* background: url(/background.jpg); */
+    background-size: cover;
+}
+
+ul {
+    margin-top: 100px;
+}
+
+li {
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px 200px 200px 200px;
+}
+
+li h3 {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+li h3:hover {
+    scale: 1.2;
+    transition: 0.3s;
 }
