@@ -8,6 +8,7 @@ import Series from './assets/pages/Series'
 import Jogos from './assets/pages/Jogos'
 import Login from './assets/pages/Login'
 import Canais from './assets/pages/Canais'
+import Revendas from './assets/pages/Revenda'
 import Reprodutor from './assets/pages/Reprodutor'
 import SelecEp from './assets/pages/SelecEp'
 
@@ -21,6 +22,7 @@ function App() {
           <Route path='filmes' element={<Filmes/>}/>
           <Route path='series' element={<Series/>}/>
           <Route path='jogos' element={<Jogos/>}/>
+          <Route path='Revenda' element={<Revendas/>}/>
           <Route path='home' element={<Home/>}/>
           <Route path='player' element={<Reprodutor/>}/>
           <Route path='selecEp' element={<SelecEp/>}/>

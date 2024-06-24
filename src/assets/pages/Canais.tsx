@@ -34,12 +34,16 @@ const Canais: React.FC = () => {
         {
             title: "Canais SBT",
             channels: [
+                { url: "http://s.streambr.site:80/824578/036170/3060507.m3u8", name: "Record 2", image: "URL_DA_IMAGEM_2", categoria: "Aberto" },
+                
                 // Adicione os canais do SBT aqui
             ]
         },
         {
             title: "Canais Documentários",
             channels: [
+                { url: "http://s.streambr.site:80/824578/036170/3060507.m3u8", name: "Record ", image: "URL_DA_IMAGEM_2", categoria: "Aberto" },
+                { url: "http://s.streambr.site:80/824578/036170/3060602.m3u8", name: "BAND CURITIBA HD", image: "URL_DA_IMAGEM_2", categoria: "Aberto" },
                 // Adicione os canais de documentários aqui
             ]
         },

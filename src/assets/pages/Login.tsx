@@ -18,7 +18,9 @@ function Login() {
     const navigate = useNavigate();
 
     const [user, setUser] = useState("");
+    const [Adm, setAdm] = useState("");
     const [password, setPassword] = useState("");
+    const [senha, setSenha] = useState("");
     const [database, setDatabase] = useState<User[]>([]);
 
     const users = [
@@ -30,6 +32,14 @@ function Login() {
         "1234"
     ];
 
+    const Adms = [
+        "tf",
+    ];
+    const senhas = [
+        "10",
+
+    ];
+
     const handleDatabase = async () => {
         const res = await axios.get("http://localhost:8080/users");
         setDatabase(res.data);
@@ -37,10 +47,13 @@ function Login() {
 
     const handleUser = (e: ChangeEvent<HTMLInputElement>) => {
         setUser(e.target.value);
+        setAdm(e.target.value);
     };
     const handlePassword = (e: ChangeEvent<HTMLInputElement>) => {
-        setPassword(e.target.value)
+        setPassword(e.target.value);
+        setSenha(e.target.value);
     };
+
     const handleSubmit = () => {
         handleDatabase();
         console.log(database);
@@ -50,6 +63,18 @@ function Login() {
                 navigate("home");
                 setUser("");
                 setPassword("");
+            } else {
+                alert("Usuário ou senha incorreto.");
+            };
+        } else {
+            alert("Usuário ou senha incorreto.");
+        };
+
+        if (Adms.indexOf(Adm) != -1 && senhas.indexOf(senha) != -1) {
+            if (Adms.indexOf(Adm) == senhas.indexOf(senha)) {
+                navigate("Revenda");
+                setAdm("");
+                setSenha("");
             } else {
                 alert("Usuário ou senha incorreto.");
             };
@@ -66,7 +91,7 @@ function Login() {
                         <input type="text" placeholder="Usuário" onChange={handleUser} id="usuario"/>
                         <input type="password" placeholder="Senha" onChange={handlePassword} id="senha" />
 
-                        <button onClick={handleSubmit} style={{cursor: "pointer"}}>Login</button>
+                        <button onClick={handleSubmit} style={{cursor: "pointer"}}>Entrar</button>
                     </div>
                 </div>
             </div>
