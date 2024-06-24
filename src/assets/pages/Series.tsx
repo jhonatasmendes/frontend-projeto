@@ -1,25 +1,22 @@
 import { useNavigate } from "react-router-dom";
-
 // componentes
 import NavButton from "../components/NavButton";
 import Product from "../components/Product";
 
-export var seriesEp = "";
+export var seriesId = 0;
 
 function series() {
     const navigate = useNavigate();
-
     const handleOnClickHome = () => {
         navigate("/home");
     };
-
-    document.onclick = function(e) {
-        if (e.target.tagName == "IMG") {
-            seriesEp = e.target.className;
+    document.onclick = function(e: MouseEvent) {
+        const target = e.target as HTMLImageElement;
+        if (target.tagName === "IMG") {
+            seriesId = parseInt(target.className);
             navigate("/selecEp");
-        };
+        }
     };
-
     return (
         <>
             <div className="container">
@@ -34,8 +31,8 @@ function series() {
                             <div className="cabecalho">
                                 <h1>Recém Adicionadas</h1>
                                 <div className="recent">
-                                    <Product type="acao" src="/Os Gigantes.jpg" ep="1" link="https://paineltftv.projetojmmidias.workers.dev/0:/S%C3%A9rie/NetFlix/Os%20Gigantes/EP%201.mp4">Os Gigantes</Product>
-                                    <Product type="Faroeste" src="Na Rota Do Ouro.jpg" link="https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202023/%20Assassinos%20da%20Lua%20das%20Flores%20.mp4?a=view">The Real Has Come</Product>
+                                    <Product type="acao" src="/Into The BadLands.jpg" id="0">Na Rota do Ouro</Product>
+                                    <Product type="suspense" src="/The Real Has Come.webp" id="1">The Real Has Come</Product>
                                 </div>
                             </div>
                         </div>
@@ -45,5 +42,4 @@ function series() {
         </>
     );
 };
-
 export default series;
