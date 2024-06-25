@@ -2,8 +2,10 @@
 
 import React, { useState, ChangeEvent } from 'react';
 import NavButton from '../components/NavButton';
-import M3U8Player from '../components/M3U8Player';
+// import M3U8Player from '../components/M3U8Player';
 import { useNavigate } from 'react-router-dom';
+// import { VLCPlayer } from 'react-native-vlc-media-player';
+import VideoPlayer from '../components/VLCPLAYER';
 
 interface Channel {
     url: string;
@@ -23,7 +25,9 @@ const Canais: React.FC = () => {
             title: "Canais Globo",
             channels: [
                 
-                { url: "https://5cf4a2c2512a2.streamlock.net/8016/8016/playlist.m3u8", name: "Globo", image: "https://th.bing.com/th/id/R.119c69661a9e39bedea75b4d09ed1dee?rik=eF1S0MzuH1gBzQ&pid=ImgRaw&r=0&sres=1&sresct=1", categoria: "Aberto" },
+                { url: "https://www.youtube.com/embed/zgeHMOPved4?si=ES-RTWQ946TUE-Ei", name: "Globo", image: "https://th.bing.com/th/id/R.6a740f84b21670b198b297f5ea85ed0c?rik=5zKQeIuYfqJWQQ&riu=http%3a%2f%2fvignette4.wikia.nocookie.net%2fredeglobologopedia%2fimages%2fe%2fe3%2fGlobo_logotipo_2008.png%2frevision%2flatest%3fcb%3d20160119051348&ehk=Sm%2f%2bmV9ha2IZ2ceNmwVMhY8IM%2b5%2fhFW1XSiSE2qc7Jo%3d&risl=&pid=ImgRaw&r=0", categoria: "Aberto" },
+                { url: "https://5f593df7851db.streamlock.net/evangelizar/tv/playlist.m3u8?PlaylistM3UCL", name: "Globo(ALT)", image: "https://th.bing.com/th/id/R.6a740f84b21670b198b297f5ea85ed0c?rik=5zKQeIuYfqJWQQ&riu=http%3a%2f%2fvignette4.wikia.nocookie.net%2fredeglobologopedia%2fimages%2fe%2fe3%2fGlobo_logotipo_2008.png%2frevision%2flatest%3fcb%3d20160119051348&ehk=Sm%2f%2bmV9ha2IZ2ceNmwVMhY8IM%2b5%2fhFW1XSiSE2qc7Jo%3d&risl=&pid=ImgRaw&r=0", categoria: "Aberto" },
+                { url: "http://15.235.11.7:14787", name: "Globo", image: "https://th.bing.com/th/id/R.119c69661a9e39bedea75b4d09ed1dee?rik=eF1S0MzuH1gBzQ&pid=ImgRaw&r=0&sres=1&sresct=1", categoria: "Aberto" },
             ]
         },
         {
@@ -36,7 +40,7 @@ const Canais: React.FC = () => {
         {
             title: "Canais SBT",
             channels: [
-                { url: "http://s.streambr.site:80/824578/036170/3060507.m3u8", name: "Record 2", image: "URL_DA_IMAGEM_2", categoria: "Aberto" },
+                { url: "https://www.youtube.com/embed/RZgxuQ0e5zc?si=Y1zub9obD3bTloMG", name: "SBT", image: "https://yt3.ggpht.com/Sy1nh5tP0V7p_nwM5KMFY0e-yN2pjFKpNQMSX3oTQHU1H2hOWVsrSXIfdcRKXCHcKVm6wiPCxhg=s48-c-k-c0x00ffffff-no-rj", categoria: "Aberto" },
                 
                 // Adicione os canais do SBT aqui
             ]
@@ -50,6 +54,15 @@ const Canais: React.FC = () => {
             ]
         },
         {
+            title: "Canais Premier",
+            channels: [
+                { url: "http://s.streambr.site:80/824578/036170/3060507.m3u8", name: "Premier", image: "https://th.bing.com/th/id/R.2b3aa23986720801fcc2eb4be36ddd16?rik=xew90jWv4kTWIQ&pid=ImgRaw&r=0", categoria: "Aberto" },
+                { url: "http://s.streambr.site:80/824578/036170/3060507.m3u8", name: "Premier(2)", image: "https://th.bing.com/th/id/R.2b3aa23986720801fcc2eb4be36ddd16?rik=xew90jWv4kTWIQ&pid=ImgRaw&r=0", categoria: "Aberto" },
+                // Adicione os canais de esportes aqui
+            ]
+        },
+        {
+
             title: "Canais Sport",
             channels: [
                 // Adicione os canais de esportes aqui
@@ -59,7 +72,7 @@ const Canais: React.FC = () => {
             title: "Canais YouTube",
             channels: [
                 { url: "https://www.youtube.com/embed/T-7Mhcz_7tM?si=8qexD1KQhtqGTckj", name: "", image: "https://th.bing.com/th/id/R.c137f4b422793b4a46266b6d701b95cd?rik=hiifW1p57qKSXA&pid=ImgRaw&r=0", categoria: "Aberto" },
-                { url: "https://www.youtube.com/embed/2K37hThe5Lg?si=SVA0BqlYlYD0z0zq", name: "", image: "https://th.bing.com/th/id/R.119c69661a9e39bedea75b4d09ed1dee?rik=eF1S0MzuH1gBzQ&pid=ImgRaw&r=0&sres=1&sresct=1", categoria: "Aberto" },
+                { url: "https://www.youtube.com/embed/RZgxuQ0e5zc?si=Y1zub9obD3bTloMG", name: "SBT", image: "https://th.bing.com/th/id/R.119c69661a9e39bedea75b4d09ed1dee?rik=eF1S0MzuH1gBzQ&pid=ImgRaw&r=0&sres=1&sresct=1", categoria: "Aberto" },
             ]
         },
         {
@@ -190,7 +203,9 @@ const Canais: React.FC = () => {
                                 allowFullScreen
                             ></iframe>
                         ) : (
-                            <M3U8Player url={selectedChannel.url} />
+                            // <M3U8Player url={selectedChannel.url} />
+                            <VideoPlayer />
+                            // <></>
                         )}
                     </div>
                 )}
