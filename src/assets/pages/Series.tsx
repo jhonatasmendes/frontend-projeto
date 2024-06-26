@@ -31,8 +31,8 @@ function series() {
                             <div className="cabecalho">
                                 <h1>Recém Adicionadas</h1>
                                 <div className="recent">
-                                    <Product type="acao" src="/Into The BadLands.jpg" id="0">Na Rota do Ouro</Product>
-                                    <Product type="suspense" src="/The Real Has Come.webp" id="1">The Real Has Come</Product>
+                                    <Product type="acao" src="/na rota do ouro.webp" id="0">Na Rota do Ouro</Product>
+                                    <Product type="suspense" src="/Os_Gigantes.jpg" id="1">Os Gigantes</Product>
                                 </div>
                             </div>
                         </div>
