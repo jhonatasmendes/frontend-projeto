@@ -132,15 +132,12 @@ const Canais: React.FC = () => {
                         key={index}
                         onClick={() => handleCategorySelection(category)}
                         style={{
-                            padding: '10px',
-                            marginBottom: '5px',
-                            backgroundColor: '#f0f0f0',
-                            border: '1px solid #ccc',
-                            borderRadius: '5px',
-                            cursor: 'pointer',
-                            width: '100%',
-                            textAlign: 'left',
-                            textTransform: 'uppercase'
+                            border: "0",
+                            backgroundColor: "transparent",
+                            width: "100%",
+                            padding: "10px",
+                            fontSize: "medium",
+                            cursor: "pointer"
                         }}
                     >
                         {category.title}
@@ -175,7 +172,8 @@ const Canais: React.FC = () => {
                                     border: '1px solid #ccc',
                                     borderRadius: '5px',
                                     cursor: 'pointer',
-                                    width: '100%'
+                                    width: '100%',
+                                    color: "black"
                                 }}
                             >
                                 <img

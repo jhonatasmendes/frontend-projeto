@@ -28,10 +28,9 @@ function jogos() {
                     <div className="content-overlay">
                         <div className="jogos">
                             <div className="cabecalho">
-                                <h1>jogos PS3</h1>
+                                <h1>Jogos PS3</h1>
                                 <div className="recent">
-                                    <Product type="acao" src="/TEKKEN 6.jpg" link="https://paineltftv.projetojmmidias.workers.dev/0:/Jogos/PS3/TEKEN%206/">TEKKEN 6</Product>
-                                    <Product type="suspense" src="/FIFA 19.jpg" link="https://paineltftv.projetojmmidias.workers.dev/0:/Jogos/PS3/FIFA.19.PS3-DUPLEX.BLES02258/">FIFA 19</Product>
+                                    <Product type="acao" src="/mortal-kombat.jpg" link="https://paineltftv.projetojmmidias.workers.dev/0:/Jogos/PS3/MORTAL%20KOMBATE.zip">Mortal Kombat</Product>
                                 </div>
                             </div>
                         </div>
