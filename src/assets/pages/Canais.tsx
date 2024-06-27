@@ -1,11 +1,10 @@
-// Canais.tsx
-
 import React, { useState, ChangeEvent } from 'react';
 import NavButton from '../components/NavButton';
 // import M3U8Player from '../components/M3U8Player';
 import { useNavigate } from 'react-router-dom';
 // import { VLCPlayer } from 'react-native-vlc-media-player';
 import VideoPlayer from '../components/VLCPLAYER';
+import styled from 'styled-components';
 
 interface Channel {
     url: string;
@@ -19,28 +18,92 @@ interface Category {
     channels: Channel[];
 }
 
+const Container = styled.div`
+    display: flex;
+`;
+
+const Sidebar = styled.div`
+    width: 200px;
+    padding: 10px;
+    background-color: #f4f4f4;
+`;
+
+const Content = styled.div`
+    flex: 1;
+    padding: 20px;
+`;
+
+const SearchInput = styled.input`
+    margin: 20px 0;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+`;
+
+const CategoryButton = styled.button`
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    text-transform: uppercase;
+`;
+
+const ChannelItem = styled.button`
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+`;
+
+const ChannelImage = styled.img`
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+`;
+
+const TVContainer = styled.div`
+    margin-top: 20px;
+`;
+
 const Canais: React.FC = () => {
     const categories: Category[] = [
         {
             title: "Canais Globo",
             channels: [
-                
-                { url: "https://www.youtube.com/embed/zgeHMOPved4?si=ES-RTWQ946TUE-Ei", name: "Globo", image: "https://th.bing.com/th/id/R.6a740f84b21670b198b297f5ea85ed0c?rik=5zKQeIuYfqJWQQ&riu=http%3a%2f%2fvignette4.wikia.nocookie.net%2fredeglobologopedia%2fimages%2fe%2fe3%2fGlobo_logotipo_2008.png%2frevision%2flatest%3fcb%3d20160119051348&ehk=Sm%2f%2bmV9ha2IZ2ceNmwVMhY8IM%2b5%2fhFW1XSiSE2qc7Jo%3d&risl=&pid=ImgRaw&r=0", categoria: "Aberto" },
-                { url: "https://5f593df7851db.streamlock.net/evangelizar/tv/playlist.m3u8?PlaylistM3UCL", name: "Globo(ALT)", image: "https://th.bing.com/th/id/R.6a740f84b21670b198b297f5ea85ed0c?rik=5zKQeIuYfqJWQQ&riu=http%3a%2f%2fvignette4.wikia.nocookie.net%2fredeglobologopedia%2fimages%2fe%2fe3%2fGlobo_logotipo_2008.png%2frevision%2flatest%3fcb%3d20160119051348&ehk=Sm%2f%2bmV9ha2IZ2ceNmwVMhY8IM%2b5%2fhFW1XSiSE2qc7Jo%3d&risl=&pid=ImgRaw&r=0", categoria: "Aberto" },
-                { url: "http://15.235.11.7:14787", name: "Globo", image: "https://th.bing.com/th/id/R.119c69661a9e39bedea75b4d09ed1dee?rik=eF1S0MzuH1gBzQ&pid=ImgRaw&r=0&sres=1&sresct=1", categoria: "Aberto" },
+                { url: "https://www.youtube.com/embed/xe7yKIxUSEE?si=gEgfVTZNBqyvR9aO", name: "Globo", image: "https://th.bing.com/th/id/R.6a740f84b21670b198b297f5ea85ed0c?rik=5zKQeIuYfqJWQQ&riu=http%3a%2f%2fvignette4.wikia.nocookie.net%2fredeglobologopedia%2fimages%2fe%2fe3%2fGlobo_logotipo_2008.png%2frevision%2flatest%3fcb%3d20160119051348&ehk=Sm%2f%2bmV9ha2IZ2ceNmwVMhY8IM%2b5%2fhFW1XSiSE2qc7Jo%3d&risl=&pid=ImgRaw&r=0", categoria: "Aberto" },
+                { url: "http://tvsd2.zoeweb.tv:1935/embed/tvsd2/smil:tvsd2.smil/playlist.m3u8", name: "Globo(ALT)", image: "https://th.bing.com/th/id/R.6a740f84b21670b198b297f5ea85ed0c?rik=5zKQeIuYfqJWQQ&riu=http%3a%2f%2fvignette4.wikia.nocookie.net%2fredeglobologopedia%2fimages%2fe%2fe3%2fGlobo_logotipo_2008.png%2frevision%2flatest%3fcb%3d20160119051348&ehk=Sm%2f%2bmV9ha2IZ2ceNmwVMhY8IM%2b5%2fhFW1XSiSE2qc7Jo%3d&risl=&pid=ImgRaw&r=0", categoria: "Aberto" },
             ]
         },
         {
             title: "Canais Record",
             channels: [
-                { url: "https://5cf4a2c2512a2.streamlock.net/8016/8016/playlist.m3u8", name: "RecordNews", image: "URL_DA_IMAGEM", categoria: "Aberto" },
-                { url: "URL_DO_CANAL_2", name: "Record 2", image: "URL_DA_IMAGEM_2", categoria: "Aberto" },
+                { url: "https://5cf4a2c2512a2.streamlock.net/8016/8016/playlist.m3u8", name: "RecordNews", image: "https://th.bing.com/th/id/R.c768d9bdee411035209141e526306b6a?rik=3oqnzR%2fG1ct7Fg&riu=http%3a%2f%2fimg2.wikia.nocookie.net%2f__cb20120229133037%2ftelepedia%2fpt-br%2fimages%2f0%2f05%2fRecord_News.png&ehk=vYpqQ9UVmMrwGH4brafaHZNmUpi9Q%2buA0yEJGIjioiI%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1", categoria: "Aberto" },
             ]
         },
+
+        {
+            title: "Canais Band",
+            channels: [
+                { url: "https://stmv1.paineltv.net/valeradiowebtv/valeradiowebtv/chunklist_w929433620.m3u8", name: "Band", image: "https://th.bing.com/th/id/OIP.OamxnSj0_zWmzXlljj1zgQHaGC?rs=1&pid=ImgDetMain", categoria: "Aberto" },
+  
+            ]
+        },
+
         {
             title: "Canais SBT",
             channels: [
-                { url: "https://www.youtube.com/embed/RZgxuQ0e5zc?si=Y1zub9obD3bTloMG", name: "SBT", image: "https://yt3.ggpht.com/Sy1nh5tP0V7p_nwM5KMFY0e-yN2pjFKpNQMSX3oTQHU1H2hOWVsrSXIfdcRKXCHcKVm6wiPCxhg=s48-c-k-c0x00ffffff-no-rj", categoria: "Aberto" },
+                { url: "https://www.youtube.com/embed/kBCfpwxP400", name: "SBT", image: "https://yt3.ggpht.com/Sy1nh5tP0V7p_nwM5KMFY0e-yN2pjFKpNQMSX3oTQHU1H2hOWVsrSXIfdcRKXCHcKVm6wiPCxhg=s48-c-k-c0x00ffffff-no-rj", categoria: "Aberto" },
                 
                 // Adicione os canais do SBT aqui
             ]
@@ -48,16 +111,14 @@ const Canais: React.FC = () => {
         {
             title: "Canais Documentários",
             channels: [
-                { url: "http://s.streambr.site:80/824578/036170/3060507.m3u8", name: "Record ", image: "URL_DA_IMAGEM_2", categoria: "Aberto" },
-                { url: "http://s.streambr.site:80/824578/036170/3060602.m3u8", name: "BAND CURITIBA HD", image: "URL_DA_IMAGEM_2", categoria: "Aberto" },
+                { url: "https://www.youtube.com/embed/xmGu7Wcl78k?si=7d6oUI62008LiRPi", name: "JP-NEWS ", image: "https://th.bing.com/th/id/OIP.D8VuRUqlfm6VQGMszNOUngHaD4?rs=1&pid=ImgDetMain", categoria: "Aberto" },
                 // Adicione os canais de documentários aqui
             ]
         },
         {
             title: "Canais Premier",
             channels: [
-                { url: "http://s.streambr.site:80/824578/036170/3060507.m3u8", name: "Premier", image: "https://th.bing.com/th/id/R.2b3aa23986720801fcc2eb4be36ddd16?rik=xew90jWv4kTWIQ&pid=ImgRaw&r=0", categoria: "Aberto" },
-                { url: "http://s.streambr.site:80/824578/036170/3060507.m3u8", name: "Premier(2)", image: "https://th.bing.com/th/id/R.2b3aa23986720801fcc2eb4be36ddd16?rik=xew90jWv4kTWIQ&pid=ImgRaw&r=0", categoria: "Aberto" },
+                { url: "https://tv.unisc.br/hls/test.m3u8", name: "Premier", image: "https://th.bing.com/th/id/R.2b3aa23986720801fcc2eb4be36ddd16?rik=xew90jWv4kTWIQ&pid=ImgRaw&r=0", categoria: "Aberto" },
                 // Adicione os canais de esportes aqui
             ]
         },
@@ -65,19 +126,21 @@ const Canais: React.FC = () => {
 
             title: "Canais Sport",
             channels: [
+                { url: "", name: "Combat", image: "https://th.bing.com/th/id/R.3165cf9f62f4d36e9e803acd8fb032a4?rik=oi7eSRUd%2bituZg&pid=ImgRaw&r=0", categoria: "Canais Sport" },
                 // Adicione os canais de esportes aqui
             ]
         },
         {
             title: "Canais YouTube",
             channels: [
-                { url: "https://www.youtube.com/embed/T-7Mhcz_7tM?si=8qexD1KQhtqGTckj", name: "", image: "https://th.bing.com/th/id/R.c137f4b422793b4a46266b6d701b95cd?rik=hiifW1p57qKSXA&pid=ImgRaw&r=0", categoria: "Aberto" },
-                { url: "https://www.youtube.com/embed/RZgxuQ0e5zc?si=Y1zub9obD3bTloMG", name: "SBT", image: "https://th.bing.com/th/id/R.119c69661a9e39bedea75b4d09ed1dee?rik=eF1S0MzuH1gBzQ&pid=ImgRaw&r=0&sres=1&sresct=1", categoria: "Aberto" },
+                { url: "https://www.youtube.com/embed/RZgxuQ0e5zc?si=Y1zub9obD3bTloMG", name: "SBT", image: "https://th.bing.com/th/id/R.c137f4b422793b4a46266b6d701b95cd?rik=hiifW1p57qKSXA&pid=ImgRaw&r=0", categoria: "Aberto" },
+                { url: "https://www.youtube.com/embed/xe7yKIxUSEE?si=gEgfVTZNBqyvR9aO", name: "Globo(ALT)", image: "https://th.bing.com/th/id/R.6a740f84b21670b198b297f5ea85ed0c?rik=5zKQeIuYfqJWQQ&riu=http%3a%2f%2fvignette4.wikia.nocookie.net%2fredeglobologopedia%2fimages%2fe%2fe3%2fGlobo_logotipo_2008.png%2frevision%2flatest%3fcb%3d20160119051348&ehk=Sm%2f%2bmV9ha2IZ2ceNmwVMhY8IM%2b5%2fhFW1XSiSE2qc7Jo%3d&risl=&pid=ImgRaw&r=0", categoria: "Aberto" },
             ]
         },
         {
             title: "Outros Canais",
             channels: [
+                { url: "", name: "TV-Cultura", image: "https://th.bing.com/th/id/R.ebb17f2da9c37bec66b7279f2d66e3a7?rik=k8EPGDHDsRL94g&pid=ImgRaw&r=0", categoria: "Outros Canais" },
                 // Adicione os outros canais aqui
             ]
         },
@@ -124,77 +187,38 @@ const Canais: React.FC = () => {
     );
 
     return (
-        <div className="container">
-            <div className="sidebar">
-                <NavButton onClick={handleOnClickHome} /*</div>style={{ marginBottom: '10px' }}*/>Home</NavButton>
+        <Container>
+            <Sidebar>
+                <NavButton onClick={handleOnClickHome}>Home</NavButton>
                 {categories.map((category, index) => (
-                    <button
+                    <CategoryButton
                         key={index}
                         onClick={() => handleCategorySelection(category)}
-                        style={{
-                            padding: '10px',
-                            marginBottom: '5px',
-                            backgroundColor: '#f0f0f0',
-                            border: '1px solid #ccc',
-                            borderRadius: '5px',
-                            cursor: 'pointer',
-                            width: '100%',
-                            textAlign: 'left',
-                            textTransform: 'uppercase'
-                        }}
                     >
                         {category.title}
-                    </button>
+                    </CategoryButton>
                 ))}
-            </div>
-            <div className="content">
-                <input
+            </Sidebar>
+            <Content>
+                <SearchInput
                     type="text"
                     placeholder="Buscar canais..."
                     value={searchTerm}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
-                    style={{
-                        margin: '20px',
-                        padding: '10px',
-                        fontSize: '16px',
-                        width: '100%',
-                        boxSizing: 'border-box'
-                    }}
                 />
                 <div className="channels-list">
                     {filteredChannels.map((channel, index) => (
-                        <div key={index} className="channel-item">
-                            <button
-                                onClick={() => handleChannelSelection(channel)}
-                                style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    padding: '10px',
-                                    marginBottom: '5px',
-                                    backgroundColor: '#fff',
-                                    border: '1px solid #ccc',
-                                    borderRadius: '5px',
-                                    cursor: 'pointer',
-                                    width: '100%'
-                                }}
-                            >
-                                <img
-                                    src={channel.image}
-                                    alt={channel.name}
-                                    style={{
-                                        width: '30px',
-                                        height: '30px',
-                                        marginRight: '10px',
-                                        borderRadius: '50%'
-                                    }}
-                                />
-                                <span>{channel.name}</span>
-                            </button>
-                        </div>
+                        <ChannelItem key={index} onClick={() => handleChannelSelection(channel)}>
+                            <ChannelImage
+                                src={channel.image}
+                                alt={channel.name}
+                            />
+                            <span>{channel.name}</span>
+                        </ChannelItem>
                     ))}
                 </div>
                 {selectedChannel && (
-                    <div className="tv">
+                    <TVContainer>
                         {selectedChannel.url.includes("youtube.com") ? (
                             <iframe
                                 src={selectedChannel.url}
@@ -205,12 +229,11 @@ const Canais: React.FC = () => {
                         ) : (
                             // <M3U8Player url={selectedChannel.url} />
                             <VideoPlayer />
-                            // <></>
                         )}
-                    </div>
+                    </TVContainer>
                 )}
-            </div>
-        </div>
+            </Content>
+        </Container>
     );
 };
 
