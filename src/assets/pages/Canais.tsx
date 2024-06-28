@@ -20,17 +20,22 @@ interface Category {
 
 const Container = styled.div`
     display: flex;
+    background-image: url('https://www.novamulher.com/resizer/znCf9WmwAdPauopZibYb6fMseMM=/1600x0/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/YIAFWHYG4VC23DDILDUO5K2EVU.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
 `;
 
 const Sidebar = styled.div`
     width: 200px;
     padding: 10px;
-    background-color: #f4f4f4;
+    background-color: rgba(255, 255, 255, 0.9); /* Background com transparência */
 `;
 
 const Content = styled.div`
     flex: 1;
     padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Background com transparência */
 `;
 
 const SearchInput = styled.input`
@@ -91,20 +96,16 @@ const Canais: React.FC = () => {
                 { url: "https://5cf4a2c2512a2.streamlock.net/8016/8016/playlist.m3u8", name: "RecordNews", image: "https://th.bing.com/th/id/R.c768d9bdee411035209141e526306b6a?rik=3oqnzR%2fG1ct7Fg&riu=http%3a%2f%2fimg2.wikia.nocookie.net%2f__cb20120229133037%2ftelepedia%2fpt-br%2fimages%2f0%2f05%2fRecord_News.png&ehk=vYpqQ9UVmMrwGH4brafaHZNmUpi9Q%2buA0yEJGIjioiI%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1", categoria: "Aberto" },
             ]
         },
-
         {
             title: "Canais Band",
             channels: [
                 { url: "https://stmv1.paineltv.net/valeradiowebtv/valeradiowebtv/chunklist_w929433620.m3u8", name: "Band", image: "https://th.bing.com/th/id/OIP.OamxnSj0_zWmzXlljj1zgQHaGC?rs=1&pid=ImgDetMain", categoria: "Aberto" },
-  
             ]
         },
-
         {
             title: "Canais SBT",
             channels: [
                 { url: "https://www.youtube.com/embed/kBCfpwxP400", name: "SBT", image: "https://yt3.ggpht.com/Sy1nh5tP0V7p_nwM5KMFY0e-yN2pjFKpNQMSX3oTQHU1H2hOWVsrSXIfdcRKXCHcKVm6wiPCxhg=s48-c-k-c0x00ffffff-no-rj", categoria: "Aberto" },
-                
                 // Adicione os canais do SBT aqui
             ]
         },
@@ -123,7 +124,6 @@ const Canais: React.FC = () => {
             ]
         },
         {
-
             title: "Canais Sport",
             channels: [
                 { url: "", name: "Combat", image: "https://th.bing.com/th/id/R.3165cf9f62f4d36e9e803acd8fb032a4?rik=oi7eSRUd%2bituZg&pid=ImgRaw&r=0", categoria: "Canais Sport" },

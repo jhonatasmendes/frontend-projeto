@@ -64,19 +64,23 @@ function Filmes() {
     };
 
     const recentFilms: Film[] = [
+        { type: "Lançamentos", src: "public/BAD BOYS ATÉ O FIM.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/BAD%20BOYS%20AT%C3%89%20O%20FIM.mp4", title: "BAD BOYS ATÉ O FIM" },
         { type: "acao", src: "Duro De Atuar 2.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Uma%20Prova%20De%20Coragem.mp4", title: "Duro De Atuar 2" },
-        { type: "acao", src: "Atlas.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Atlas.mp4?a=view", title: "Atlas" },
+        { type: "acao", src: "Atlas.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Atlas.mp4", title: "Atlas" },
         { type: "acao", src: "Taro Da Morte.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Taro%20Da%20Morte.mp4?a=view", title: "Taro Da Morte" },
-        { type: "acao", src: "Uma Prova De Coragem.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Uma%20Prova%20De%20Coragem.mp4?a=view", title: "Uma Prova De Coragem" },
+        { type: "acao", src: "Uma Prova De Coragem.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Uma%20Prova%20De%20Coragem.mp4", title: "Uma Prova De Coragem" },
         { type: "acao", src: "Herança Roubada.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Rec%C3%A9m%20Adicionado/TF-Heran%C3%A7a%20roubada.mp4", title: "Herança Roubada" },
         { type: "suspense", src: "Assassino da Rua Das Flores.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202023/%20Assassinos%20da%20Lua%20das%20Flores%20.mp4", title: "Assassino da Rua Das Flores" },
         { type: "animacao", src: "kung-fu-panda4.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Rec%C3%A9m%20Adicionado/KUNG%20FU%20PANDA%204%20(TF_2024).mp4", title: "Kung Fu Panda 4" },
-        { type: "acao", src: "Batalha dos Drones.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202023/Batalha%20dos%20Drones.mp4", title: "Batalha dos Drones" }
-    ];
+        { type: "acao", src: "Batalha dos Drones.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202023/Batalha%20dos%20Drones.mp4", title: "Batalha dos Drones" },
+        { type: "Lançamentos", src: "public/DivertidaMente-2.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/DivertidaMente.mp4", title: "DivertidaMente 2" },
+        
+    ]; 
 
     const acaoFilms: Film[] = [
-        { type: "acao", src: "Duro De Atuar 2.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Uma%20Prova%20De%20Coragem.mp4?a=view", title: "Duro De Atuar 2" },
-        { type: "acao", src: "Acao2.jpg", link: "link_do_filme_acao2", title: "Ação Filme 2" },
+        { type: "acao", src: "Duro De Atuar 2.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Uma%20Prova%20De%20Coragem.mp4", title: "Duro De Atuar 2" },
+        { type: "acao", src: "public/BAD BOYS ATÉ O FIM.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/BAD%20BOYS%20AT%C3%89%20O%20FIM.mp4", title: "BAD BOYS ATÉ O FIM" },
+        { type: "acao", src: "public/DivertidaMente-2.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/DivertidaMente.mp4", title: "Ação Filme 2" },
         // Adicione mais filmes de ação aqui
     ];
 
