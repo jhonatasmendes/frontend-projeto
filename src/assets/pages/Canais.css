@@ -4,8 +4,7 @@
 }
 
 .sidebar {
-  width: 20%;
-  background-color: #f7f7f7;
+  background-color: rgb(202, 91, 50);
   border-right: 1px solid #ccc;
   display: flex;
   flex-direction: column;
@@ -18,10 +17,10 @@
   flex-direction: column;
 }
 
-.channels-list {
+/* .channels-list {
   flex-grow: 1;
   overflow-y: auto;
-}
+} */
 
 .channel-item {
   display: flex;
