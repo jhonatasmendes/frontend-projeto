@@ -102,7 +102,6 @@ const Canais: React.FC = () => {
                 { url: "https://www.youtube.com/embed/live/tctmsuassS0?si=QThCN42hzCq2zpSt", name: "RecordNews", image: "https://th.bing.com/th/id/R.c768d9bdee411035209141e526306b6a?rik=3oqnzR%2fG1ct7Fg&riu=http%3a%2f%2fimg2.wikia.nocookie.net%2f__cb20120229133037%2ftelepedia%2fpt-br%2fimages%2f0%2f05%2fRecord_News.png&ehk=vYpqQ9UVmMrwGH4brafaHZNmUpi9Q%2buA0yEJGIjioiI%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1", categoria: "Aberto" },
             ]
         },
-
         {
             title: "Canais Band",
             channels: [
@@ -110,7 +109,6 @@ const Canais: React.FC = () => {
   
             ]
         },
-
         {
             title: "Canais SBT",
             channels: [
@@ -134,7 +132,6 @@ const Canais: React.FC = () => {
             ]
         },
         {
-
             title: "Canais Sport",
             channels: [
                 { url: "", name: "Combat", image: "https://th.bing.com/th/id/R.3165cf9f62f4d36e9e803acd8fb032a4?rik=oi7eSRUd%2bituZg&pid=ImgRaw&r=0", categoria: "Canais Sport" },
