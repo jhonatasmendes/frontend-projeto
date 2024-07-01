@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import NavButton from "../components/NavButton";
 import Product from "../components/Product";
@@ -17,6 +17,23 @@ function Filmes() {
     const [activeCategory, setActiveCategory] = useState<string>("recent");
     const [isAdultCategoryAccessible, setIsAdultCategoryAccessible] = useState<boolean>(false);
     const [searchTerm, setSearchTerm] = useState<string>("");
+    const [newFilm, setNewFilm] = useState<Film>({ type: "", src: "", link: "", title: "" });
+    const [recentFilms, setRecentFilms] = useState<Film[]>([
+        { type: "Lançamentos", src: "BAD BOYS ATÉ O FIM.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/BAD%20BOYS%20AT%C3%89%20O%20FIM.mp4", title: "BAD BOYS ATÉ O FIM" },
+        { type: "acao", src: "Duro De Atuar 2.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Uma%20Prova%20De%20Coragem.mp4", title: "Duro De Atuar 2" },
+        { type: "acao", src: "Atlas.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Atlas.mp4", title: "Atlas" },
+        { type: "acao", src: "Taro Da Morte.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Taro%20Da%20Morte.mp4", title: "Taro Da Morte" },
+        { type: "acao", src: "Uma Prova De Coragem.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Uma%20Prova%20De%20Coragem.mp4", title: "Uma Prova De Coragem" },
+        { type: "acao", src: "Herança Roubada.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Rec%C3%A9m%20Adicionado/TF-Heran%C3%A7a%20roubada.mp4", title: "Herança Roubada" },
+        { type: "suspense", src: "Assassino da Rua Das Flores.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202023/%20Assassinos%20da%20Lua%20das%20Flores%20.mp4", title: "Assassino da Rua Das Flores" },
+        { type: "animacao", src: "kung-fu-panda4.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Rec%C3%A9m%20Adicionado/KUNG%20FU%20PANDA%204%20(TF_2024).mp4", title: "Kung Fu Panda 4" },
+        { type: "acao", src: "Batalha dos Drones.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202023/Batalha%20dos%20Drones.mp4", title: "Batalha dos Drones" },
+        { type: "Lançamentos", src: "DivertidaMente-2.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/DivertidaMente.mp4", title: "DivertidaMente 2" },
+    ]);
+
+    setRecentFilms;
+
+    const [userFilms, setUserFilms] = useState<Film[]>([]);
 
     const handleOnClickHome = () => {
         navigate("/home");
@@ -36,7 +53,7 @@ function Filmes() {
         }
     };
 
-    document.onclick = function(e: MouseEvent) {
+    document.onclick = function (e: MouseEvent) {
         const target = e.target as HTMLImageElement;
         if (target.tagName === "IMG") {
             filmSrc = target.id;
@@ -44,8 +61,19 @@ function Filmes() {
         }
     };
 
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setNewFilm({ ...newFilm, [name]: value });
+    };
+
+    const handleAddFilm = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setUserFilms([...userFilms, newFilm]);
+        setNewFilm({ type: "", src: "", link: "", title: "" });
+    };
+
     const renderFilms = (films: Film[]) => {
-        const filteredFilms = films.filter(film => 
+        const filteredFilms = films.filter(film =>
             film.title.toLowerCase().includes(searchTerm.toLowerCase())
         );
         const rows: JSX.Element[] = [];
@@ -62,20 +90,6 @@ function Filmes() {
         }
         return rows;
     };
-
-    const recentFilms: Film[] = [
-        { type: "Lançamentos", src: "BAD BOYS ATÉ O FIM.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/BAD%20BOYS%20AT%C3%89%20O%20FIM.mp4", title: "BAD BOYS ATÉ O FIM" },
-        { type: "acao", src: "Duro De Atuar 2.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Uma%20Prova%20De%20Coragem.mp4", title: "Duro De Atuar 2" },
-        { type: "acao", src: "Atlas.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Atlas.mp4", title: "Atlas" },
-        { type: "acao", src: "Taro Da Morte.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Taro%20Da%20Morte.mp4", title: "Taro Da Morte" },
-        { type: "acao", src: "Uma Prova De Coragem.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Uma%20Prova%20De%20Coragem.mp4", title: "Uma Prova De Coragem" },
-        { type: "acao", src: "Herança Roubada.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Rec%C3%A9m%20Adicionado/TF-Heran%C3%A7a%20roubada.mp4", title: "Herança Roubada" },
-        { type: "suspense", src: "Assassino da Rua Das Flores.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202023/%20Assassinos%20da%20Lua%20das%20Flores%20.mp4", title: "Assassino da Rua Das Flores" },
-        { type: "animacao", src: "kung-fu-panda4.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Rec%C3%A9m%20Adicionado/KUNG%20FU%20PANDA%204%20(TF_2024).mp4", title: "Kung Fu Panda 4" },
-        { type: "acao", src: "Batalha dos Drones.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202023/Batalha%20dos%20Drones.mp4", title: "Batalha dos Drones" },
-        { type: "Lançamentos", src: "DivertidaMente-2.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/DivertidaMente.mp4", title: "DivertidaMente 2" },
-        
-    ]; 
 
     const acaoFilms: Film[] = [
         { type: "acao", src: "Duro De Atuar 2.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Uma%20Prova%20De%20Coragem.mp4", title: "Duro De Atuar 2" },
@@ -119,6 +133,7 @@ function Filmes() {
                     <NavButton onClick={() => handleCategoryChange("terror")}>Terror</NavButton>
                     <NavButton onClick={() => handleCategoryChange("nacional")}>Nacional</NavButton>
                     <NavButton onClick={() => handleCategoryChange("adulto")}>Adulto</NavButton>
+                    <NavButton onClick={() => handleCategoryChange("userContent")}>Conteúdos Adicionados via Usuário</NavButton>
                 </div>
                 <div className="content">
                     <div className="content-overlay">
@@ -129,6 +144,41 @@ function Filmes() {
                             onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
                             style={{ margin: '20px', padding: '10px', fontSize: '16px' }}
                         />
+                        <form onSubmit={handleAddFilm}>
+                            <input
+                                type="text"
+                                name="title"
+                                placeholder="Título do Filme"
+                                value={newFilm.title}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            <input
+                                type="text"
+                                name="type"
+                                placeholder="Tipo do Filme"
+                                value={newFilm.type}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            <input
+                                type="text"
+                                name="src"
+                                placeholder="Caminho da Imagem"
+                                value={newFilm.src}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            <input
+                                type="text"
+                                name="link"
+                                placeholder="Link do Filme"
+                                value={newFilm.link}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            <button type="submit">Salvar</button>
+                        </form>
                         <div className="filmes">
                             {activeCategory === "recent" && (
                                 <div className="cabecalho">
@@ -175,13 +225,20 @@ function Filmes() {
                                 </div>
                             )}
 
-
-
                             {activeCategory === "adulto" && isAdultCategoryAccessible && (
                                 <div className="cabecalho">
                                     <h1>Adulto</h1>
                                     <div className="adulto">
                                         {renderFilms(adultoFilms)}
+                                    </div>
+                                </div>
+                            )}
+
+                            {activeCategory === "userContent" && (
+                                <div className="cabecalho">
+                                    <h1>Conteúdos Adicionados via Usuário</h1>
+                                    <div className="userContent">
+                                        {renderFilms(userFilms)}
                                     </div>
                                 </div>
                             )}

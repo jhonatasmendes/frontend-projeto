@@ -112,11 +112,21 @@ const Canais: React.FC = () => {
         {
             title: "Canais SBT",
             channels: [
-                { url: "https://www.youtube.com/embed/live/kBCfpwxP400?si=BOMPfLKaD9DSYaCf", name: "SBT", image: "https://yt3.ggpht.com/Sy1nh5tP0V7p_nwM5KMFY0e-yN2pjFKpNQMSX3oTQHU1H2hOWVsrSXIfdcRKXCHcKVm6wiPCxhg=s48-c-k-c0x00ffffff-no-rj", categoria: "Aberto" },
+                { url: "https://www.youtube.com/embed/live/kBCfpwxP400?si=BOMPfLKaD9DSYaCf", name: "SBT", image: "public/Discovery Kids.jpg", categoria: "Aberto" },
                 
                 // Adicione os canais do SBT aqui
             ]
         },
+        
+        {
+            title: "Canais Infantil",
+            channels: [
+                { url: "http://168.205.87.198:8555/live/1052/123456/143.m3u8", name: "Discovery Kids", image: "https://yt3.ggpht.com/Sy1nh5tP0V7p_nwM5KMFY0e-yN2pjFKpNQMSX3oTQHU1H2hOWVsrSXIfdcRKXCHcKVm6wiPCxhg=s48-c-k-c0x00ffffff-no-rj", categoria: "Aberto" },
+                
+                // Adicione os canais do SBT aqui
+            ]
+        },
+
         {
             title: "Canais Documentários",
             channels: [

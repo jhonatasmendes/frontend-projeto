@@ -83,7 +83,7 @@ function Login() {
             {showVideo ? (
                 <div className="fullscreen-video-container">
                     <video
-                        src="src/intro tf.mp4"
+                        src="/intro tf.mp4"
                         autoPlay
                         controls={false}
                         className="fullscreen-video"
