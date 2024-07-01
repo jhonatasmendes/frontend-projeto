@@ -22,6 +22,7 @@ function Login() {
     const [password, setPassword] = useState("");
     const [senha, setSenha] = useState("");
     const [database, setDatabase] = useState<User[]>([]);
+    const [showVideo, setShowVideo] = useState(false);
 
     const users = [
         "Mendes",
@@ -37,7 +38,6 @@ function Login() {
     ];
     const senhas = [
         "10",
-
     ];
 
     const handleDatabase = async () => {
@@ -49,7 +49,7 @@ function Login() {
         setUser(e.target.value);
         setAdm(e.target.value);
     };
-    //ttt
+
     const handlePassword = (e: ChangeEvent<HTMLInputElement>) => {
         setPassword(e.target.value);
         setSenha(e.target.value);
@@ -59,45 +59,60 @@ function Login() {
         handleDatabase();
         console.log(database);
 
-        if (users.indexOf(user) != -1 && passwords.indexOf(password) != -1) {
-            if (users.indexOf(user) == passwords.indexOf(password)) {
-                navigate("home");
-                setUser("");
-                setPassword("");
+        if (users.indexOf(user) !== -1 && passwords.indexOf(password) !== -1) {
+            if (users.indexOf(user) === passwords.indexOf(password)) {
+                setShowVideo(true);
+                setTimeout(() => {
+                    navigate("home");
+                    setUser("");
+                    setPassword("");
+                }, 5000); // Tempo do vídeo em milissegundos
             } else {
                 alert("Usuário ou senha incorreto.");
-            };
+            }
         } else {
             alert("Usuário ou senha incorreto.");
-        };
+        }
 
-        if (Adms.indexOf(Adm) != -1 && senhas.indexOf(senha) != -1) {
-            if (Adms.indexOf(Adm) == senhas.indexOf(senha)) {
+        if (Adms.indexOf(Adm) !== -1 && senhas.indexOf(senha) !== -1) {
+            if (Adms.indexOf(Adm) === senhas.indexOf(senha)) {
                 navigate("Revenda");
                 setAdm("");
                 setSenha("");
             } else {
                 alert("Usuário ou senha incorreto.");
-            };
+            }
         } else {
             alert("Usuário ou senha incorreto.");
-        };
+        }
     };
 
     return (
         <>
-            <div className="login-background">
-                <div className="login-root">
-                    <div className="login-box">
-                        <input type="text" placeholder="Usuário" onChange={handleUser} id="usuario"/>
-                        <input type="password" placeholder="Senha" onChange={handlePassword} id="senha" />
+            {showVideo ? (
+                <div className="fullscreen-video-container">
+                    <video
+                        src="src/intro tf.mp4"
+                        autoPlay
+                        controls={false}
+                        className="fullscreen-video"
+                        onEnded={() => navigate("home")}
+                    ></video>
+                </div>
+            ) : (
+                <div className="login-background">
+                    <div className="login-root">
+                        <div className="login-box">
+                            <input type="text" placeholder="Usuário" onChange={handleUser} id="usuario"/>
+                            <input type="password" placeholder="Senha" onChange={handlePassword} id="senha" />
 
-                        <button onClick={handleSubmit} style={{cursor: "pointer"}}>Entrar</button>
+                            <button onClick={handleSubmit} style={{cursor: "pointer"}}>Entrar</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            )}
         </>
     );
-};
+}
 
 export default Login;

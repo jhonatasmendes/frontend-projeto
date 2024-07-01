@@ -80,7 +80,7 @@ function Filmes() {
     const acaoFilms: Film[] = [
         { type: "acao", src: "Duro De Atuar 2.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/Uma%20Prova%20De%20Coragem.mp4", title: "Duro De Atuar 2" },
         { type: "acao", src: "BAD BOYS ATÉ O FIM.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/BAD%20BOYS%20AT%C3%89%20O%20FIM.mp4", title: "BAD BOYS ATÉ O FIM" },
-        { type: "acao", src: "DivertidaMente-2.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/DivertidaMente.mp4", title: "Ação Filme 2" },
+        { type: "acao", src: "DivertidaMente-2.jpg", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Filmes%202024/DivertidaMente.mp4", title: "DivertidaMente2" },
         // Adicione mais filmes de ação aqui
     ];
 
@@ -91,8 +91,8 @@ function Filmes() {
     ];
 
     const terrorFilms: Film[] = [
-        { type: "terror", src: "Terror1.jpg", link: "link_do_filme_terror1", title: "Terror Filme 1" },
-        { type: "terror", src: "Terror2.jpg", link: "link_do_filme_terror2", title: "Terror Filme 2" },
+        { type: "terror", src: "https://th.bing.com/th/id/OIP.wftxY7HDIVZoZbM1CBMzQgAAAA?rs=1&pid=ImgDetMain", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Terror/A%20Bruxa%20de%20Blair%202%20-%20O%20Livro%20das%20Sombras%20-%202000.mp4", title: "A Bruxa de Blair 2 - O Livro das Sombras" },
+        { type: "terror", src: "https://th.bing.com/th/id/OIP.1M4_nZZHhwDGOTxnCLJT1wAAAA?rs=1&pid=ImgDetMain", link: "https://paineltftv.projetojmmidias.workers.dev/0:/Filmes/Terror/A%20Casa%20de%20Cera%20-%202005.mp4", title: "A Casa de Cera" },
         // Adicione mais filmes de terror aqui
     ];
 
