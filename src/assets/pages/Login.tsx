@@ -59,29 +59,20 @@ function Login() {
         handleDatabase();
         console.log(database);
 
-        if (users.indexOf(user) !== -1 && passwords.indexOf(password) !== -1) {
-            if (users.indexOf(user) === passwords.indexOf(password)) {
-                setShowVideo(true);
-                setTimeout(() => {
+        if ((users.indexOf(user) !== -1 && passwords.indexOf(password) !== -1 && users.indexOf(user) === passwords.indexOf(password)) || 
+            (Adms.indexOf(Adm) !== -1 && senhas.indexOf(senha) !== -1 && Adms.indexOf(Adm) === senhas.indexOf(senha))) {
+            setShowVideo(true);
+            setTimeout(() => {
+                if (users.indexOf(user) !== -1) {
                     navigate("home");
-                    setUser("");
-                    setPassword("");
-                }, 5000); // Tempo do vídeo em milissegundos
-            } else {
-                alert("Usuário ou senha incorreto.");
-            }
-        } else {
-            alert("Usuário ou senha incorreto.");
-        }
-
-        if (Adms.indexOf(Adm) !== -1 && senhas.indexOf(senha) !== -1) {
-            if (Adms.indexOf(Adm) === senhas.indexOf(senha)) {
-                navigate("Revenda");
+                } else {
+                    navigate("Revenda");
+                }
+                setUser("");
+                setPassword("");
                 setAdm("");
                 setSenha("");
-            } else {
-                alert("Usuário ou senha incorreto.");
-            }
+            }, 5000); // Tempo do vídeo em milissegundos
         } else {
             alert("Usuário ou senha incorreto.");
         }
