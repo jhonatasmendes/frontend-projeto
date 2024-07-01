@@ -24,10 +24,11 @@ const Home: React.FC = () => {
     const handleOnClickCanais = () => {
         navigate("/canais");
     };
+    const handleOnClickSair = () => {
+        navigate("/login"); // Altere para a rota desejada para logout
+    };
 
-    const logosCanais: Logo[] = [
-        
-    ];
+    const logosCanais: Logo[] = [];
 
     const filteredLogos = logosCanais.filter(logo =>
         logo.alt.toLowerCase().includes(searchTerm.toLowerCase())
@@ -41,6 +42,7 @@ const Home: React.FC = () => {
                     <NavButton onClick={handleOnClickFilmes}>Filmes</NavButton>
                     <NavButton onClick={handleOnClickSeries}>Series</NavButton>
                     <NavButton onClick={handleOnClickJogos}>Jogos</NavButton>
+                    <NavButton onClick={handleOnClickSair}>Sair</NavButton>
                 </div>
                 <div className="content">
                     <div className="content-overlay">
