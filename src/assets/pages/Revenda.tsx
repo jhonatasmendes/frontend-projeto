@@ -18,10 +18,6 @@ function Filmes() {
     const [isAdultCategoryAccessible, setIsAdultCategoryAccessible] = useState<boolean>(false);
     const [searchTerm, setSearchTerm] = useState<string>("");
 
-    const handleOnClickHome = () => {
-        navigate("/home");
-    };
-
     const handleCategoryChange = (category: string) => {
         if (category === "adulto") {
             const password = prompt("Digite a senha para acessar esta categoria:");
@@ -104,11 +100,12 @@ function Filmes() {
         // Adicione mais filmes adultos aqui
     ];
 
+    
+
     return (
         <>
             <div className="container">
                 <div className="sidebar">
-                    <NavButton onClick={handleOnClickHome}>Home</NavButton>
                     <NavButton onClick={() => handleCategoryChange("recent")}>Lançamentos</NavButton>
                     <NavButton onClick={() => handleCategoryChange("acao")}>Ação</NavButton>
                     <NavButton onClick={() => handleCategoryChange("infantil")}>Infantil</NavButton>

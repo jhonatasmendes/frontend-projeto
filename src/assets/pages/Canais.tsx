@@ -1,9 +1,7 @@
 import React, { useState, ChangeEvent } from 'react';
 import NavButton from '../components/NavButton';
-// import M3U8Player from '../components/M3U8Player';
+import VideoPlayer from '../components/VideoPlayer';
 import { useNavigate } from 'react-router-dom';
-// import { VLCPlayer } from 'react-native-vlc-media-player';
-import VideoPlayer from '../components/VLCPLAYER';
 import styled from 'styled-components';
 import "./Canais.css";
 
@@ -23,7 +21,7 @@ const Container = styled.div`
     display: flex;
     justify-content: left;
     width: 100%;
-    height: 180%;
+    height: 100vh;
 `;
 
 const Sidebar = styled.div`
@@ -40,7 +38,7 @@ const Content = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 150%;
+    width: 100%;
     background: url(/background.jpg);
 `;
 
@@ -85,6 +83,7 @@ const ChannelImage = styled.img`
 
 const TVContainer = styled.div`
     margin-top: 20px;
+    width: 100%;
 `;
 
 const Canais: React.FC = () => {
@@ -92,8 +91,8 @@ const Canais: React.FC = () => {
         {
             title: "Canais Globo",
             channels: [
-                { url: "https://www.youtube.com/embed/-NbkgC9kwEY?si=BOMPfLKaD9DSYaCf", name: "Globo", image: "https://th.bing.com/th/id/R.6a740f84b21670b198b297f5ea85ed0c?rik=5zKQeIuYfqJWQQ&riu=http%3a%2f%2fvignette4.wikia.nocookie.net%2fredeglobologopedia%2fimages%2fe%2fe3%2fGlobo_logotipo_2008.png%2frevision%2flatest%3fcb%3d20160119051348&ehk=Sm%2f%2bmV9ha2IZ2ceNmwVMhY8IM%2b5%2fhFW1XSiSE2qc7Jo%3d&risl=&pid=ImgRaw&r=0", categoria: "Aberto" },
-                { url: "http://tvsd2.zoeweb.tv:1935/embed/tvsd2/smil:tvsd2.smil/playlist.m3u8", name: "Globo(ALT)", image: "https://th.bing.com/th/id/R.6a740f84b21670b198b297f5ea85ed0c?rik=5zKQeIuYfqJWQQ&riu=http%3a%2f%2fvignette4.wikia.nocookie.net%2fredeglobologopedia%2fimages%2fe%2fe3%2fGlobo_logotipo_2008.png%2frevision%2flatest%3fcb%3d20160119051348&ehk=Sm%2f%2bmV9ha2IZ2ceNmwVMhY8IM%2b5%2fhFW1XSiSE2qc7Jo%3d&risl=&pid=ImgRaw&r=0", categoria: "Aberto" },
+                { url: "https://59f1cbe63db89.streamlock.net:1443/rsnews/_definst_/rsnews/chunklist.m3u8", name: "Globo", image: "https://th.bing.com/th/id/R.6a740f84b21670b198b297f5ea85ed0c?rik=5zKQeIuYfqJWQQ&riu=http%3a%2f%2fvignette4.wikia.nocookie.net%2fredeglobologopedia%2fimages%2fe%2fe3%2fGlobo_logotipo_2008.png%2frevision%2flatest%3fcb%3d20160119051348&ehk=Sm%2f%2bmV9ha2IZ2ceNmwVMhY8IM%2b5%2fhFW1XSiSE2qc7Jo%3d&risl=&pid=ImgRaw&r=0", categoria: "Aberto" },
+                { url: "http://wowza4.catve.com.br:1935/live/livestream/media.m3u8", name: "Globo(ALT)", image: "https://th.bing.com/th/id/R.6a740f84b21670b198b297f5ea85ed0c?rik=5zKQeIuYfqJWQQ&riu=http%3a%2f%2fvignette4.wikia.nocookie.net%2fredeglobologopedia%2fimages%2fe%2fe3%2fGlobo_logotipo_2008.png%2frevision%2flatest%3fcb%3d20160119051348&ehk=Sm%2f%2bmV9ha2IZ2ceNmwVMhY8IM%2b5%2fhFW1XSiSE2qc7Jo%3d&risl=&pid=ImgRaw&r=0", categoria: "Aberto" },
             ]
         },
         {
@@ -137,14 +136,14 @@ const Canais: React.FC = () => {
         {
             title: "Canais Premier",
             channels: [
-                { url: "https://tv.unisc.br/hls/test.m3u8", name: "Premier", image: "https://th.bing.com/th/id/R.2b3aa23986720801fcc2eb4be36ddd16?rik=xew90jWv4kTWIQ&pid=ImgRaw&r=0", categoria: "Aberto" },
+                { url: "http://cdn.connectbr.com.br/AE/index.m3u8", name: "Premier", image: "https://th.bing.com/th/id/R.2b3aa23986720801fcc2eb4be36ddd16?rik=xew90jWv4kTWIQ&pid=ImgRaw&r=0", categoria: "Aberto" },
                 // Adicione os canais de esportes aqui
             ]
         },
         {
             title: "Canais Sport",
             channels: [
-                { url: "", name: "Combat", image: "https://th.bing.com/th/id/R.3165cf9f62f4d36e9e803acd8fb032a4?rik=oi7eSRUd%2bituZg&pid=ImgRaw&r=0", categoria: "Canais Sport" },
+                { url: "", name: "Combat", image: "https://stream.ads.ottera.tv/playlist.m3u8", categoria: "Canais Sport" },
                 // Adicione os canais de esportes aqui
             ]
         },
@@ -159,6 +158,8 @@ const Canais: React.FC = () => {
             title: "Outros Canais",
             channels: [
                 { url: "", name: "TV-Cultura", image: "https://th.bing.com/th/id/R.ebb17f2da9c37bec66b7279f2d66e3a7?rik=k8EPGDHDsRL94g&pid=ImgRaw&r=0", categoria: "Outros Canais" },
+                { url: "http://cdn.connectbr.com.br/AE/index.m3u8", name: "Premier", image: "https://th.bing.com/th/id/R.2b3aa23986720801fcc2eb4be36ddd16?rik=xew90jWv4kTWIQ&pid=ImgRaw&r=0", categoria: "Aberto" },
+                
                 // Adicione os outros canais aqui
             ]
         },
@@ -235,54 +236,17 @@ const Canais: React.FC = () => {
                     />
                     <div className="channels-list">
                         {filteredChannels.map((channel, index) => (
-                            <><ChannelItem key={index} onClick={() => handleChannelSelection(channel)}>
+                            <ChannelItem key={index} onClick={() => handleChannelSelection(channel)}>
                                 <ChannelImage
                                     src={channel.image}
                                     alt={channel.name} />
                                 <span>{channel.name}</span>
-                            </ChannelItem><div key={index} className="channel-item">
-                                    <button
-                                        onClick={() => handleChannelSelection(channel)}
-                                        style={{
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            padding: '10px',
-                                            marginBottom: '5px',
-                                            backgroundColor: '#fff',
-                                            border: '1px solid #ccc',
-                                            borderRadius: '5px',
-                                            cursor: 'pointer',
-                                            width: '100%',
-                                            color: "black"
-                                        }}
-                                    >
-                                        <img
-                                            src={channel.image}
-                                            alt={channel.name}
-                                            style={{
-                                                width: '30px',
-                                                height: '30px',
-                                                marginRight: '10px',
-                                                borderRadius: '50%'
-                                            }} />
-                                        <span>{channel.name}</span>
-                                    </button>
-                                </div></>
+                            </ChannelItem>
                         ))}
                     </div>
                     {selectedChannel && (
                         <TVContainer>
-                            {selectedChannel.url.includes("youtube.com") ? (
-                                <iframe
-                                    src={selectedChannel.url}
-                                    title={selectedChannel.name}
-                                    style={{ width: '100%', height: '400px', border: 'none' }}
-                                    allowFullScreen
-                                ></iframe>
-                            ) : (
-                                // <M3U8Player url={selectedChannel.url} />
-                                <VideoPlayer />
-                            )}
+                            <VideoPlayer url={selectedChannel.url} />
                         </TVContainer>
                     )}
                 </div>

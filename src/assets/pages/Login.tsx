@@ -29,15 +29,15 @@ function Login() {
         "Jonas"
     ];
     const passwords = [
-        "10999",
-        "1234"
+        "140520",
+        "1243"
     ];
 
     const Adms = [
-        "tf",
+        "",
     ];
     const senhas = [
-        "10",
+        "",
     ];
 
     const handleDatabase = async () => {
